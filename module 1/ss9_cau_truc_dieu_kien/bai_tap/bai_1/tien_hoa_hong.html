@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tien_hoa_hong_dua_tren_doanh_thu</title>
+</head>
+<body>
+
+</body>
+<script>
+    let doanhThu= parseInt(prompt("nhap doanh thu ",''));
+    let hoaHong;
+    switch(true) {
+       case doanhThu < 1000000:
+         hoaHong = 2.5/ 100 * doanhThu;
+         break;
+       case doanhThu < 2000000:
+         hoaHong = 5/ 100 * doanhThu;
+         break;
+       case doanhThu > 2000000:
+         hoaHong = 7/ 100 * doanhThu;
+         break;
+    }
+    alert(hoaHong)
+</script>
+</html>

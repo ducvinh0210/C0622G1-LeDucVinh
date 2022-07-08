@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xep_hang_hoc_luc_cua_hoc_sinh</title>
+    
+</head>
+<body>
+<button onclick="xepHang()"> click me</button>
+
+</body>
+<script>
+    function xepHang() {
+        let diemKt=parseInt(prompt("nhap diem kiem tra",''));
+        let diemGk= parseInt(prompt("nhap diem giua ky",''));
+        let diemCk=parseInt(prompt("nhap diem cuoi ky",''));
+        let diemTk= (diemKt + diemGk*2 + diemCk*3)/6;
+        if(diemTk >=8) {
+            alert("hoc sinh gioi");
+        }else if(diemTk >=6.5){
+            alert("hoc sinh kha");
+
+        }else{
+            alert("hoc sinh trung binh");
+        }
+    }
+</script>
+</html>

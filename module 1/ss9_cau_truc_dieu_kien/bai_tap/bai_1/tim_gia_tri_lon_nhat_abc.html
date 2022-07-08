@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tim_so_lon_nhat_trong_abc</title>
+</head>
+<body>
+<button onclick="soBig()">click me</button>
+</body>
+<script>
+    function soBig() {
+        let number1 = parseInt(prompt("nhap gia tri thu 1", ''));
+        let number2 = parseInt(prompt("nhap gia tri thu 2", ''));
+        let number3 = parseInt(prompt("nhap gia tri thu 3", ''));
+        if (number1 > number2 && number1 > number3) {
+            alert("so lon nhat la number1");
+
+        } else if (number2 > number3) {
+            alert("so lon nhat la number2");
+        } else {
+            alert("so lon nhat la number3");
+        }
+    }
+</script>
+</html>

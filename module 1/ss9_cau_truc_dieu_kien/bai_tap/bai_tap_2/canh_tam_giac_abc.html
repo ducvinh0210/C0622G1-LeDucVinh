@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canh_tam_giac_abc</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>nhap so thu nhat:</th>
+        <th><input type="number" id="n1"></th>
+    </tr>
+    <tr>
+        <th> nhap so thu 2:</th>
+        <th><input type="number" id="n2"></th>
+    </tr>
+    <tr>
+        <th> nha so thu 3:</th>
+        <th><input type="number" id="n3"></th>
+    </tr>
+
+</table>
+<button onclick="tamGiac()">click me</button>
+<p id="out"></p>
+</body>
+<script>
+    function tamGiac() {
+        let a = +document.getElementById("n1").value;
+        let b = +document.getElementById("n2").value;
+        let c = +document.getElementById("n3").value;
+        if ((b + c) > a && (a + c) > b && (a + b) > c && c > 0 && b > 0 && a > 0) {
+            document.getElementById("out").innerHTML = "Day la tam giac";
+        } else {
+            document.getElementById("out").innerHTML = "Day khong la tam giac";
+        }
+
+    }
+</script>
+</html>

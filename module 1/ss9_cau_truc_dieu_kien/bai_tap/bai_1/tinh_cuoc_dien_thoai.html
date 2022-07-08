@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tinh_cuoc_dien_thoai</title>
+</head>
+<body>
+<script>
+    let number= parseInt(prompt("nhap so tien luong ",''));
+    let cuocDienthoai;
+    switch(true) {
+        case number < 1000000:
+            cuocDienthoai= number;
+            break;
+        case number < 2000000:
+            cuocDienthoai=number - number*0.05;
+            break;
+        case number > 2000000:
+          cuocDienthoai= number- number*0.07;
+            break;
+    }
+    alert(cuocDienthoai);
+</script>
+</body>
+</html>

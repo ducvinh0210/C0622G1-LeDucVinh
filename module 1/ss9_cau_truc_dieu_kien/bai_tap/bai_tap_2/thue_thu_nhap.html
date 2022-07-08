@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thue_thu_nhap</title>
+</head>
+<body>
+<input type="number" id="thuNhap">
+<button onclick="ketQua1()">click me</button>
+<p id="end">kết quả:</p>
+</body>
+<script>
+    function ketQua1() {
+        let number = +document.getElementById("thuNhap").value;
+        let result="";
+if (number<=10000000){
+    result= number;
+}else  if (number <= 200000000){
+    result= number -number*0.05;
+}else if (number <= 30000000){
+    result= number- number*0.07;
+
+}else {
+    result= number- number*0.1;
+}
+document.getElementById("end").innerHTML=result;
+    }
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>giai_phuong_trinh_bac_2</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>nhap so thu nhat:</th>
+        <th><input type="number" id="nFirst"></th>
+    </tr>
+    <tr>
+        <th> nhap so thu 2:</th>
+        <th><input type="number" id="nSecond"></th>
+    </tr>
+    <tr>
+        <th> nha so thu 3:</th>
+        <th><input type="number" id="nThird"> </th>
+    </tr>
+
+</table>
+<button onclick="pt2()">click me</button>
+<p id="nghiemPtr2"></p>
+</body>
+<script>
+    function pt2() {
+        let a= parseInt(document.getElementById("nFirst").value);
+        let b= parseInt(document.getElementById("nSecond").value);
+        let c= parseInt(document.getElementById("nFirst").value);
+        let delta= b*b-(4*a*c);
+        let result="";
+
+        if ( delta>0){
+           result="Pt cos 2 nghiem x1 = "+(-b+Math.sqrt(delta)/(2*a))+ ", x2= "+(-b-Math.sqrt(delta)/(2*a));
+        }else if (delta=0){
+            result="phuong trinh co nghiem kep "+   -b/(2*a);
+
+        }else {
+            result="phuong trinh vo nghiem";
+        }
+
+document.getElementById("nghiemPtr2").innerHTML=result;
+    }
+</script>
+</html>

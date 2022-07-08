@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuong_trinh_tinh_gia_dien</title>
+</head>
+<!--Bậc 1   Cho kWh từ 0 - 50  1.678
+Bậc 2  Cho kWh từ 51 - 100     1.734
+Bậc 3  Cho kWh từ 101 - 200   2.014
+Bậc 4  Cho kWh từ 201 trở lên 2.536-->
+<body>
+<input type="number" id="giaDien">
+<button onclick="ketQua()">click me</button>
+<p id="end">gia dien</p>
+</body>
+<script>
+    function ketQua() {
+ let number = parseInt(document.getElementById("giaDien").value);
+ let result;
+ if(number>0 && number<50){
+     result= number*1678 + "VND";
+ }else if(number<=100){
+     result=number*1734;
+ }else if (number<=200){
+     result= number*2014;
+ }else {
+     result=number*2536;
+ }
+document.getElementById("end").innerHTML=result;
+
+
+
+
+
+    }
+</script>
+</html>

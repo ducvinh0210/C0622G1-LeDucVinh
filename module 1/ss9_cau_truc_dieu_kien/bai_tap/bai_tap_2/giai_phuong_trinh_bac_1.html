@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>giai_phuong_trinh_bac_1</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>nhap so a:</th>
+        <th><input type="number" id="so1"></th>
+    </tr>
+    <tr>
+        <th>nhap so b:</th>
+        <th><input type="number" id="so2"></th>
+    </tr>
+</table>
+<button onclick="pT()">click me</button>
+<p id="nghiemPtrinh"></p>
+</body>
+<script>
+    function pT() {
+        let n1 = parseInt(document.getElementById("so1").value);
+        let n2 = parseInt(document.getElementById("so2").value);
+        let nghiemPt;
+        if (n1 == 0 && n2 == 0) {
+            nghiemPt = "phuong trinh vo so nghem";
+        } else if (n1 == 0) {
+            nghiemPt = "phuong trinh vo ngiem";
+        } else if (n2 == 0) {
+            nghiemPt = "phuong trinh co nghiem X=0";
+        } else {
+            nghiemPt = -n2 / n1;
+        }
+
+        document.getElementById("nghiemPtrinh").innerHTML = nghiemPt;
+    }
+</script>
+</html>
