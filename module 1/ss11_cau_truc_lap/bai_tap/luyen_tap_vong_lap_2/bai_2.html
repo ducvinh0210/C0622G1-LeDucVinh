@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tinh_giai_thua_cua_mot_so_nguyen</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt("nhập so vao day"));
+    let ketQua;
+    if (number === 0){
+        ketQua = 1;
+    }else if(number > 0){
+        ketQua=1;
+        for (let i = 1; i <= number; i++) {
+            ketQua *= i;
+        }
+    }
+    alert(ketQua);
+</script>
+</body>
+</html>

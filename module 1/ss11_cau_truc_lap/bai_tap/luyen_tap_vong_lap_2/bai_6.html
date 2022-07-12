@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>in_ra_hinh_trai_tim</title>
+</head>
+<body>
+<script>
+    let heart = "<table style='width: 150px'>";
+    for (let i=1; i<=6; i++) {
+        heart += "<tr>";
+        for (let j=1; j<=7; j++) {
+            if (
+                (i===1 && (j===1 || j===4 || j===7))
+                || (i===4 && (j===1 || j===7))
+                || (i===5 && (j!==3 && j!==4 && j!==5))
+                || (i===6 && j!==4)
+            ) {
+                heart += "<td>" + "</td>";
+            }
+            else {
+                heart += "<td>" + "*" + "</td>";
+            }
+        }
+        heart += "</tr>";
+    }
+    heart += "</table>";
+    document.write(heart);
+</script>
+</body>
+</html>

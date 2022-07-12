@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hien_thi_cac_so_nguyen_dau_tien</title>
+</head>
+<body>
+<script>
+    let number= parseInt(prompt("nhap so vao day"));
+    let i = 2;
+    let amount=1;
+    let isPrime;
+    while (amount <= number){
+        isPrime = 1;
+        for(let j=2; j < i; j++){
+            if ((i % j == 0) && (i != 2)){
+                isPrime=0;
+            }
+        }
+        if (isPrime == 1){
+            document.write(i+"<br>");
+            amount++;
+        }
+        i++
+    }
+
+
+
+
+</script>
+</body>
+</html>

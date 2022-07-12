@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>in_day_fibonaci</title>
+</head>
+<body>
+<script>
+    let num1 = 0;
+    let num2 = 1;
+    let numNext = 0;
+    let length = +prompt("Nhap do dai");
+    for (let i = 0; i < length; i++) {
+        document.write(numNext + "<br>");
+        num1 = num2;
+        num2 = numNext;
+        numNext = num1 + num2;
+    }
+</script>
+</body>
+</html>

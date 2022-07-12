@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tong_20_so_dau_tien_trong_fibonacci</title>
+</head>
+<body>
+<script>
+    let num1=0;
+    let num2=1;
+    let numNext=0;
+    let total = 0;
+    for (let i = 0; i <20 ; i++) {
+        total = total + numNext;
+        console.log(total)
+        document.write(numNext+ "<br>");
+        num1=num2;
+        num2=numNext;
+        numNext=num1+num2;
+    }
+    alert(total);
+</script>
+</body>
+</html>

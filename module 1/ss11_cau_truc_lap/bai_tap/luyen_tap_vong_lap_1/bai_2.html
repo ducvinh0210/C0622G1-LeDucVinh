@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thay_doi_nhiet_do</title>
+</head>
+<body>
+<button onclick="thayDoi()">click me</button>
+<script>
+    function thayDoi() {
+        let temp;
+        do{
+            temp=parseInt(prompt("nhap gia tri nhiet do"));
+            if(temp<20){
+                alert("can tang nhiet do");
+            }else if(temp>100){
+                alert("can giam nhiet do");
+            }
+
+        }while (temp<20||temp>100 );
+        alert(temp);
+    }
+
+</script>
+
+</body>
+</html>

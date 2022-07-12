@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuong_trinh_in_ra_cac_so_tu_1_100</title>
+</head>
+<body>
+<script>
+    let output="";
+    for (let i = 1; i <101 ; i++) {
+        output="";
+        if(i % 3 == 0){
+            output += "Fizz";
+        }
+        if(i % 5 == 0){
+            output += "Buzz";
+        }
+        if(output==""){
+            output=i;
+        }
+        document.write(output+"<br>")
+    }
+</script>
+
+</body>
+</html>
