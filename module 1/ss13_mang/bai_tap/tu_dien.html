@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tu_dien</title>
+</head>
+<body>
+<input type="text" id="tuDien">
+<button onclick="ketQua()">tra cuu</button>
+<p id="tuTraCuu"></p>
+<script>
+function ketQua() {
+    let tiengAnh = ["car","computer","coffee","window","coding"];
+    let tiengViet = ["oto","máy tính","cà phê","cửa sổ","lập trình"];
+    let tuInput = document.getElementById("tuDien").value.toLowerCase();
+    let result;
+    // if (tuTiengViet.indexOf(input) !== -1)
+    if (tiengAnh.includes(tuInput)){
+        let viTri = tiengAnh.indexOf(tuInput);
+        result = tiengViet[viTri];
+    }else{
+        result = "khong hien thi";
+    }
+    document.getElementById("tuTraCuu").innerHTML =result;
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>

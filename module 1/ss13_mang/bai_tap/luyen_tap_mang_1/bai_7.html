@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr=[1,2,3,4,5,6,7,8,9,10];
+    let v =+prompt("Nhap V");
+    if(arr.indexOf(v) != -1) {
+        arr.splice(arr.indexOf(v),1);
+        arr.push(0);
+    }
+    document.write(arr);
+</script>
+</body>
+</html>

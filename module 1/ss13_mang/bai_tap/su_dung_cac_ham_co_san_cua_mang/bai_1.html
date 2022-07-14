@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>noi_cac_phan_tu_trong_mang</title>
+</head>
+<body>
+<script>
+
+   //bai1 noi cac phan tu trong mang
+    let myColor=["Red","While","Green","Black"];
+    document.write(myColor.join("+")+"<br>");
+    console.log(myColor.join());
+    document.write(myColor.toString()+"<br>");
+
+    // bai2 viết chương trình nhận một số nhập vào và chèn dấu (-)giữa 2 số chẳn
+
+   let number = prompt("nhap so vao day");
+   let str = number.toString();
+   let result = [str[0]];
+   for (let i = 1; i < str.length; i++) {
+       if ((str[i - 1] % 2 === 0) && (str[i] % 2 === 0)) {
+           result.push("-", str[i]);
+       } else {
+           result.push(str[i]);
+       }
+   }
+   document.write(result.join(" "));
+   // baì 3 chuyển The Quick Brown Fox thành tHE qUICk bROWN fOX
+
+
+    // let str = "The Quick Brown Fox ";
+    // let upper ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    // let l
+
+
+</script>
+</body>
+</html>

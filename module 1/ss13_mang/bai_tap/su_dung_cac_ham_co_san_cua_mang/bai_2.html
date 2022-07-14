@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let fullName = "The Quick Brown Fox";
+    let result = '';
+    for(let word of fullName) {
+        if(word == word.toUpperCase()) {
+            result += word.toLowerCase();
+        } else{
+            result += word.toUpperCase();
+        }
+    }
+    document.write(fullName + '<br>');
+    document.write(result);
+
+</script>
+</body>
+</html>

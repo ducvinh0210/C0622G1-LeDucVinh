@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gia_tri_lon_nhat</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        arr.push(+prompt("Nhap 1 so"));
+    }
+    let max = [0];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    document.write("mang ban dau: " + arr + "<br>");
+    document.write(" So lon nhat la: " + max + " Tai vi tri: " + arr.indexOf(max));
+</script>
+</body>
+</html>

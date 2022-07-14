@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sap_xep_mang_theo_gia_tri_giam_dan</title>
+</head>
+<body>
+<script>
+    let inputArray = [];
+    for (let i = 0; i < 10; i++) {
+        inputArray[i] = +prompt("Nhập phần tử số nguyên tại vị trí " + i);
+    }
+    document.write("Mảng khởi tạo là: [" + inputArray + "]" + "<br>" + "<br>");
+    inputArray.sort(function (a, b) {
+        return b - a
+    })
+    document.write("Mảng đã sắp xếp là: [" + inputArray + "]");
+</script>
+</body>
+</html>

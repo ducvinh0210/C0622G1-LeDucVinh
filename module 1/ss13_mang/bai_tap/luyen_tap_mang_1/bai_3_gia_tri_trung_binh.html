@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gia_tri_trung_binh</title>
+</head>
+<body>
+<script>
+    let length= prompt("nhap do dai mang")
+    let arr = [];
+    for (let i = 0; i <length ; i++) {
+        for(let j =0;j<length.length;j++){
+            arr.push(+prompt("Nhap 1 so"));
+        }
+    }
+
+    let max = [0];
+    let sum=0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+            sum+=arr[i]
+        }
+    }
+    document.write("gia tri lon nhat trong mang"+ max +"<br>");
+    document.write("gia tri trung binh "+ sum/arr.length)
+
+</script>
+</body>
+</html>
