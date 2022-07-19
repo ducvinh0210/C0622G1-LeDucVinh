@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyen_doi_feet_sang_meters</title>
+</head>
+<body>
+<script>
+function footToMeter(foot) {
+    let meter = 0.305*foot;
+    return meter;
+}
+function meterToFoot(meter){
+    let foot = 3.279*meter;
+    return foot;
+}
+let foot = +prompt( "nhap do foot");
+document.write(foot +" foot"+"="+ footToMeter(foot)+"meter"+ "<br>");
+let meter= +prompt("nhap do meter");
+document.write(meter+"meter"+"="+meterToFoot(meter)+"foot");
+</script>
+</body>
+</html>
