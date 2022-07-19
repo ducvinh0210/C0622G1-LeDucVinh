@@ -6,6 +6,23 @@
 </head>
 <body>
 <script>
+    let amount = +prompt("Số lượng phần từ cần nhập")
+    let inputArray = [];
+    for (let i = 0; i < amount; i++) {
+        inputArray[i] = prompt("Nhập phần tử  tại vị trí " + i);
+    }
+    document.write("Mảng khởi tạo là: [" + inputArray + "]" + "<br>" + "<br>");
+    let countNumber = 0;
+    for (let i = 0; i < amount; i++) {
+        if (parseFloat(inputArray[i])) {
+            countNumber++;
+        }
+        if (parseFloat(inputArray[i]) === 0) {
+            countNumber++;
+        }
+    }
+
+    document.write("Số lượng kí tự số trong mảng là: " + countNumber);
 
 
 

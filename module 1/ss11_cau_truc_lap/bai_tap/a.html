@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+
+    // let division = 0;
+    // for (let i = 1; i < number; i++) {
+    //     if (number % i === 0) {
+    //         division++
+    //     }
+    // }
+    // if (division === 2) {
+    //
+    //
+    // }
+
+    let number = parseInt(prompt("a"));
+    let countSNT = 2;
+    let count = 1;
+
+    while (count <= number) {
+       let division=0;
+        for (let i = 1; i <= countSNT; i++) {
+            if (countSNT % i == 0) {
+                division++
+            }
+        }
+
+        if (division == 2) {
+            document.write(countSNT + "<br>");
+            count++
+        }
+
+        countSNT++
+    }
+</script>
 </body>
 </html>
