@@ -5,6 +5,25 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    let string = prompt("kí tự cần nhập vào");
+    let ketQua = check(string);
+    document.write(ketQua);
 
+    function check(nhap) {
+        let result;
+        if (isNaN(nhap)) {
+            result = "ki tu nhap vao khong phai la so"
+
+            return result;
+        } else {
+            result = "ki tu nhap vao la so"
+            return result;
+
+        }
+
+    }
+
+</script>
 </body>
 </html>

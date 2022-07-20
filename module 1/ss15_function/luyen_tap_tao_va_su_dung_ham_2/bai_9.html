@@ -5,6 +5,30 @@
     <title>Title</title>
 </head>
 <body>
+<!--: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, -->
+<!--kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không. -->
+<!--Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.-->
+<script>
+    let arr1 = ['h', 'f', 'm', 'n', 'm', 'r', 'y'];
+    let str = 'm';
+    let result=checkNum(arr1,str);
+    document.write(result);
+    function checkNum(arr, kiTu) {
+        let soLan = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (kiTu === arr[i]) {
+                soLan++;
+            }
 
+        }
+        if(soLan === 0){
+            soLan = -1;
+        }
+        return soLan;
+
+    }
+
+
+</script>
 </body>
 </html>
