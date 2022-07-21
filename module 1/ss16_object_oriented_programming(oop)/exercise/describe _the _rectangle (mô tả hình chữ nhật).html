@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+class Rectangle {
+    constructor(chieuDai,chieuRong) {
+        this.chieuDai=chieuDai;
+        this.chieuRong=chieuRong;
+    }
+    tinhChuVi(){
+        let chuVi= (this.chieuRong+ this.chieuDai)*2;
+        return chuVi;
+    }
+    tinhDienTich(){
+        let dienTich=(this.chieuRong*this.chieuDai);
+        return dienTich;
+    }
+    hienThiChieuDai(){
+        return this.chieuDai;
+    }
+    hienThiChieuRong(){
+        return this.chieuRong;
+    }
+}
+let hinhChuNhat= new Rectangle(100,50);
+let chuVi1 = hinhChuNhat.tinhChuVi();
+let dienTich1= hinhChuNhat.tinhDienTich();
+document.write("chu vi la"+ chuVi1);
+document.write("dien tich la: "+ dienTich1);
+
+
+
+
+
+
+
+</script>
 </body>
 </html>

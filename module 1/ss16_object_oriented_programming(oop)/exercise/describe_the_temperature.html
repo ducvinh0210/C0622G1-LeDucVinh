@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+class Temperature{
+    celsius;
+    constructor(celsius) {
+        this.celsius = celsius;
+    }
+    fahrenheit(){
+        return 9/5*this.celsius +32;
+    }
+    kevin(){
+        return this.celsius +   273.15;
+    }
+}
+let temperature = new Temperature(30);
+let my_fahrenheit= temperature.fahrenheit();
+let my_kevin = temperature.kevin();
+document.write("nhiet do f: "+ my_fahrenheit+ "<br>"+ "nhiet do k"+ my_kevin);
+
+
+</script>
 </body>
 </html>
