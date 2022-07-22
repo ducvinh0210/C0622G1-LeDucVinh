@@ -18,13 +18,34 @@ let tong;
         let goiMon = +prompt("1.cà phê \n 2.cam vắt \n 3. nước ép cà rốt \n 4. nước ép cà chua \n 5. nước lọc \n 6. nước dừa\n7.thoát gọi món");
         switch (goiMon) {
             case 1:
-               soLuong= +prompt("nhap so luong ca phe");
-               alert("So tien: "+(prices[goiMon-1]*soLuong)+"VND")
+                soLuong = +prompt("nhap so luong ca phe");
+                alert("So tien: " + (prices[goiMon - 1] * soLuong) + "VND")
+                break;
+
+            case 2:
+                soLuong = +prompt("nhap so luong nuoc cam");
+                alert("So tien: " + (prices[goiMon - 1] * soLuong) + "VND")
+                break;
+            case 3:
+                soLuong = +prompt("nhap so luong nuoc ep ca rot");
+                alert("So tien: " + (prices[goiMon - 1] * soLuong) + "VND")
+                break;
+            case 4:
+                soLuong = +prompt("nhap so luong nuoc ep ca chua");
+                alert("So tien: " + (prices[goiMon - 1] * soLuong) + "VND")
+                break;
+            case 5:
+                soLuong = +prompt("nhap so luong nuoc loc");
+                alert("So tien: " + (prices[goiMon - 1] * soLuong) + "VND")
+                break;
+            case 6:
+                soLuong = +prompt("nhap so luong nuoc dua");
+                alert("So tien: " + (prices[goiMon - 1] * soLuong) + "VND")
+                break;
+            case 7:
+                alert("ket thuc goi mon");
                 break;
         }
-            case 2:
-                soLuong= +prompt("nhap so luong nuoc cam")
-
 
     }while (check)
 
