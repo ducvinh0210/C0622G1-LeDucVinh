@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--20% thuế thu nhập nếu lương là 15 triệu.-->
+<!--10% thuế thu nhập nếu lương từ 7 đến 15 triệu.-->
+<!--5% thuế thu nhập nếu lương dưới 7 triệu-->
+
+
+
+<body>
+<script>
+
+    let salary = +prompt("nhap so luong ban dau: ");
+    let thueThuNhap;
+    let luongRong;
+    if (salary >= 15000000) {
+        thueThuNhap = salary * 0.2;
+        luongRong = salary - thueThuNhap;
+    } else if (salary >= 7000000) {
+        thueThuNhap = salary * 0.1;
+        luongRong = salary - thueThuNhap;
+    } else {
+        thueThuNhap = salary * 0.05;
+        luongRong = salary - thueThuNhap;
+    }
+    document.write(thueThuNhap+"<br>");
+    document.write(luongRong);
+
+
+
+</script>
+</body>
+</html>

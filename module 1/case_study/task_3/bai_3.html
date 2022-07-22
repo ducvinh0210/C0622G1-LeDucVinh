@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let numberators=[5,2,5];
+let denominators=[6,3,4];
+let index;
+
+max= numberators[0]/denominators[0];
+for (let i = 0; i <numberators.length ; i++) {
+    if(numberators[i]/denominators[i]>max){
+
+        max=numberators[i]/denominators[i];
+        index=i;
+
+    }
+
+}
+document.write("phan so lon nhat la"+ numberators[index]/denominators[index]+"<br>");
+document.write("vi tri "+ index);
+
+
+
+</script>
+</body>
+</html>

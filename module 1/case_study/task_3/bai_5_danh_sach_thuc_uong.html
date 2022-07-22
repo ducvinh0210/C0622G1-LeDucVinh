@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Đánh dấu theo thứ tự 1 (cafe), 2 (cam vắt), 3(nước ép cà rốt), 4(nước ép cà chua),-->
+<!--5(nước lọc), 6(nước dừa), 7(thoát gọi món)v-->
+<body>
+<script>
+let menu=[ "cà phê ","cam vắt","nước ép cà rốt","nước ép cà chua","nước lọc","nước dừa","thoát gọi món"];
+let prices= [15,25,25,20,10,20];
+let order=[]
+let check = true;
+let soLuong = 0;
+let tong;
+    do{
+        let goiMon = +prompt("1.cà phê \n 2.cam vắt \n 3. nước ép cà rốt \n 4. nước ép cà chua \n 5. nước lọc \n 6. nước dừa\n7.thoát gọi món");
+        switch (goiMon) {
+            case 1:
+               soLuong= +prompt("nhap so luong ca phe");
+               alert("So tien: "+(prices[goiMon-1]*soLuong)+"VND")
+                break;
+        }
+            case 2:
+                soLuong= +prompt("nhap so luong nuoc cam")
+
+
+    }while (check)
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

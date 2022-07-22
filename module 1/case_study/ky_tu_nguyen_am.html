@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--// Các ký tự nguyên âm bao gồm: 'o', 'u', 'i', 'a', 'e' hoặc 'O', 'U', 'I', 'A', 'E'-->
+<body>
+
+
+<script>
+    let arr1= prompt("nhap ki tu bat ky vao day");
+    function checkNguyenAm(kiTu) {
+        let arr = ["o", "u", "i", "a", "e", "O", "U", "I", "A", "E"];
+        if (arr.indexOf(kiTu) == -1) {
+            document.write("Phu am")
+        } else {
+            document.write("nguyen am")
+        }
+    }
+    checkNguyenAm(arr1);
+</script>
+</body>
+</html>
