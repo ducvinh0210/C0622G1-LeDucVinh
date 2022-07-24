@@ -6,30 +6,59 @@
 </head>
 <body>
 <script>
-    let choice;
-    let menu = ["Coffee","Orange juice", "Carrot juice", "Tomato juice", "Clear water", "Coconut water", "Exit"];
-    let prices = [10,7,8,9,5,6];
-    let order = [];
-    let total = 0;
-    let amount;
-    do{
-        choice = +prompt("1. Coffee\n2.Orange juice\n3.Carrot juice\n4.Tomato juice\n5.Clear water\n6.Coconut water\n7.Exit");
-        if (choice > 0 && choice < 8){
-            if (choice == 7){
-                break
-            }else{
-                amount = +prompt("Price: $"+prices[choice-1]+"; Enter amount of "+ menu[choice-1]+" you would like to order");
-                order.push(menu[choice-1]+" x"+amount);
-                total += prices[choice-1]*amount;
+    function check(str) {
+        str = str.trim();
+        str = str.toLowerCase();
+        let kiemTra = str.split('');
+        for (let i = 0; i < kiemTra.length; i++) {
+            if (kiemTra[i] == " " && kiemTra[i + 1] == " ") {
+                kiemTra.splice(i, 1);
+                i--;
             }
         }
-    }while(choice != 7);
-    document.write("You have ordered: <br>");
-    for (let i = 0; i < order.length; i++) {
-        document.write((i+1)+") ");
-        document.write(order[i]+"<br>");
     }
-    document.write("Total bill: $"+total);
+    function vietHoa(words) {
+          words = words.split('');
+        let result = '';
+        for (let i = 0; i < words.length; i++) {
+            for (let j = 0; j < words[i].length; j++) {
+                if (j == 0) {
+                    result = result + words[i][j].toUpperCase();
+
+                } else {
+                    result = result + words[i][j].toLowerCase();
+
+                }
+
+            }
+            result = result + ' ';
+        }
+        return result.trim();
+    }
+        function checkDoDai(str1) {
+            let words1 = str1.split('');
+            let tuLonNhat = 0;
+            let tuLonNhatSau = "";
+            for (let i = 0; i < words1.length; i++) {
+                if (words1[i].length > tuLonNhat) {
+                    tuLonNhat = words1[i].length
+                    tuLonNhatSau = words1[i];
+                }
+
+            }
+            return "tu dai nhat" + tuLonNhatSau + "<br>" + "do dai " + tuLonNhat;
+
+        }
+
+        let chuoiNhapVao = "   le DuC VInh and PHAm THI vI";
+        let chuoiKetThuc = check(chuoiNhapVao);
+        let result= vietHoa(chuoiKetThuc);
+        document.write("tu chuan hoa la" + result + "<br>" );
+
+        
+
+
+
 </script>
 </body>
 </html>
