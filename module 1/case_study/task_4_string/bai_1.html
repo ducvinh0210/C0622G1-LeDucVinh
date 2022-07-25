@@ -16,27 +16,18 @@
                 i--;
             }
         }
+        return kiemTra;
     }
     function vietHoa(words) {
-          words = words.split('');
-        let result = '';
         for (let i = 0; i < words.length; i++) {
-            for (let j = 0; j < words[i].length; j++) {
-                if (j == 0) {
-                    result = result + words[i][j].toUpperCase();
-
-                } else {
-                    result = result + words[i][j].toLowerCase();
-
-                }
-
+            if(i === 0 || words[i-1] === ' '){
+               words[i] = words[i].toUpperCase();
             }
-            result = result + ' ';
         }
-        return result.trim();
+        return words.join('');
     }
         function checkDoDai(str1) {
-            let words1 = str1.split('');
+            let words1 = str1.split(' ');
             let tuLonNhat = 0;
             let tuLonNhatSau = "";
             for (let i = 0; i < words1.length; i++) {
@@ -46,14 +37,16 @@
                 }
 
             }
-            return "tu dai nhat" + tuLonNhatSau + "<br>" + "do dai " + tuLonNhat;
+            document.write("<br> tu dai nhat: " + tuLonNhatSau + "<br>" + "do dai: " + tuLonNhat);
 
         }
 
-        let chuoiNhapVao = "   le DuC VInh and PHAm THI vI";
+        let chuoiNhapVao = "   le DuC VInh daO     TRong KieN   coDEGym    ";
         let chuoiKetThuc = check(chuoiNhapVao);
         let result= vietHoa(chuoiKetThuc);
-        document.write("tu chuan hoa la" + result + "<br>" );
+        document.write("tu chuan hoa la: " + result + "<br>" );
+        checkDoDai(result)
+
 
         
 

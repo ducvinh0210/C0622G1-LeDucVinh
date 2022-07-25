@@ -6,44 +6,26 @@
 </head>
 <body>
 <script>
-    function chuanHoa(str) {
-        str = str.trim();
-        str = str.toLowerCase();
-        let checkArray = str.split('');
-        for (let i = 0; i < checkArray.length; i++) {
-            if (checkArray[i] === " " && checkArray[i + 1] === " ") {
-                checkArray.splice(i, 1);
-                i--;
-            }
+    let str1 = "aabccddeff";
+    let str2 = "adcaadeef";
+    let arr1 = str1.split('');
+    let arr2 = str2.split('');
+    let arrC = [];
+    let index = 0;
+
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr2.includes(arr1[i])) {
+            arrC.push(arr1[i]);
+            index = arr2.indexOf(arr1[i]);
+            arr2.splice(index, 1);
+
         }
 
-        checkArray[0] = checkArray[0].toString().toUpperCase();
-        for (let i = 1; i < checkArray.length; i++) {
-            if (checkArray[i - 1] === " ") {
-                checkArray[i] = checkArray[i].toString().toUpperCase();
-            }
-        }
-        str = checkArray.join("");
-        return str;
     }
 
-    function findLongestWord(str) {
-        let words = str.split(' ');
-        let maxWord = "";
-        let maxLength = 0;
-        for (let i = 0; i < words.length; i++) {
-            if (words[i].length > maxLength) {
-                maxLength = words[i].length;
-                maxWord = words[i];
-            }
-        }
-        return "Từ dài nhất là: " + maxWord + "<br>" + " Độ dài là: " + maxLength;
 
-    }
-    let inputString = "  tRuonG    tAn Hai LONg Nam     ";
-    let formString = chuanHoa(inputString);
-    document.write("Từ chuẩn hóa là: " + formString + "<br>" + findLongestWord(formString));
-
+    alert('Hai xâu vừa nhập có ' + arrC.length + ' kí tự chung, lần lượt là: ' + arrC.sort());
 </script>
 </body>
 </html>
