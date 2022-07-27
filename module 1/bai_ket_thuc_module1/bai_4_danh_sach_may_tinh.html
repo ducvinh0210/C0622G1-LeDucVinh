@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Mã máy (str    ing)-->
+<!--+ Tên máy(string)-->
+<!--+ Tên Hãng sản xuất (string)-->
+<!--+ Giá bán (number).-->
+<!--<tr>-->
+<!--    <th>STT</th>-->
+<!--    <th>Mã Máy</th>-->
+<!--    <th>Ten Máy</th>-->
+<!--    <th> Hãng Sản Xuất</th>-->
+<!--    <th> Giá Bán</th>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--    <td> +(i+1)+</td>-->
+<!--    <td>danhSach[i].getMaMay</td>-->
+<!--    <td>danhSach[i].getTenMay</td>-->
+<!--    <td>danhSach[i].getHangSanXuat</td>-->
+<!--    <td>danhSach[i].getGiaBan</td>-->
+<!--<td><button onclick="xoaMayTinh("+i+")">Xóa</button> </td>-->
+<!--<td><button onclick="suaMayTinh("+i+")" > Sửa máy tinh</td>-->
+<!--</tr>-->
+
+<button onclick="themMoi()">thêm mới danh sách</button>
+
+<p id = "display"></p>
+<script>
+    class MayTinh{
+        constructor(maMay,tenMay,hangSanXuat,giaBan) {
+            this.maMay= maMay;
+            this.tenMay=tenMay;
+            this.hangSanXuat= hangSanXuat;
+            this.giaBan= giaBan;
+        }
+        setMaMay(maMotMay){
+            this.maMay=maMotMay;
+        }
+        setTenMay(tenMotMay){
+            this.tenMay=tenMotMay;
+        }
+        setHangSanXuat(hangSanXuat) {
+            this.hangSanXuat = hangSanXuat;
+        }
+        setGiaBan(giaBan){
+            this.giaBan = giaBan;
+        }
+        getMaMay(){
+            return this.maMay;
+
+        }
+        getTenMay(){
+            return this.tenMay;
+        }
+        getHangSanXuat(){
+            return this.hangSanXuat;
+
+        }
+        getGiaBan(){
+            return this.giaBan;
+        }
+    }
+    let mayTinh1 = new MayTinh("123","m1","dell","200");
+    let mayTinh2 = new MayTinh("234","m2","msi","300");
+    let mayTinh3 = new MayTinh("456","m3","macbook","400");
+    let danhSachMayTinh= [mayTinh1,mayTinh2,mayTinh3];
+    display(danhSachMayTinh);
+    function themMoi() {
+        let maMay = prompt("nhập vào mã máy: ");
+        let tenMay = prompt("nhập vào tên máy: ");
+        let hangSanXuat = prompt("nhập vào hãng sản xuất: ");
+        let giaBan= +prompt("nhập vào giá bán: ");
+        let mayTinhMoi = new MayTinh(maMay,tenMay,hangSanXuat,giaBan);
+        danhSachMayTinh.push(mayTinhMoi);
+        display(danhSachMayTinh);
+    }
+    function display(danhSach) {
+        danhSachMayTinh.sort(function sort(a, b) {
+            if (a.giaBan > b.giaBan) {
+                return 1;
+            } else if (a.giaBan < b.giaBan) {
+                return -1;
+            } else {
+                return 0;
+            }
+        })
+        let tableString = '<table border="1">'
+        tableString+='<tr>\n' +
+            '    <th>STT</th>\n' +
+            '    <th>Mã Máy</th>\n' +
+            '    <th>Ten Máy</th>\n' +
+            '    <th> Hãng Sản Xuất</th>\n' +
+            '    <th> Giá Bán</th>\n' +
+            '</tr>'
+
+        for (let i = 0; i <danhSach.length ; i++) {
+            tableString += '<tr>\n' +
+                '    <td> '+(i+1)+'</td>\n' +
+                '    <td>'+danhSach[i].getMaMay()+'</td>\n' +
+                '    <td>'+danhSach[i].getTenMay()+'</td>\n' +
+                '    <td>'+danhSach[i].getHangSanXuat()+'</td>\n' +
+                '    <td>'+danhSach[i].getGiaBan()+'</td>\n' +
+                "<td><button onclick='xoaMayTinh("+i+")'>Xóa</button> </td>\n"+
+           " <td><button onclick='suaMayTinh("+i+")' > Sửa máy tinh</td>\n"+
+                '</tr>'
+            
+        }
+    tableString += '</table>';
+    document.getElementById("display").innerHTML = tableString;
+    }
+    function xoaMayTinh(i) {
+        danhSachMayTinh.splice(i,1)
+        display(danhSachMayTinh)
+    }
+    function suaMayTinh(i) {
+        let maMay = prompt("nhập mã máy tính");
+        let tenMay = prompt(" nhập tên máy tính");
+        let hangSanXuat = prompt("nhập hãng sản xuất máy tính");
+        let giaBan = +prompt("nhập giá bán máy tính:");
+        danhSachMayTinh.splice(i,1,new MayTinh(maMay,tenMay,hangSanXuat,giaBan));
+        display(danhSachMayTinh)
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+// tìm dãy fibonacci trong chuỗi ;
+
+<body>
+<script>
+function check(array) {
+    let num1 = 0;
+    let num2= 1;
+    let fibonacci = [];
+    let j;
+    let outPut =[];
+    for (j = 0; j < 100; j++) {
+        fibonacci.push(num1 + num2)
+        num1 = num2
+        num2 = fibonacci[j]
+    }
+    for (let i = 0; i <array.length ; i++) {
+        if( array[i] > fibonacci[fibonacci.length-1]){
+            while (array[i]> fibonacci[fibonacci.length-1]){
+                fibonacci.push(num1+num2)
+                num1 = num2
+                num2 =fibonacci[j]
+                j++
+            }
+        }
+        if (fibonacci.includes(array[i])){
+            outPut.push(+array[i])
+        }
+
+    }
+return outPut.sort(function sort(a,b) {
+    if(a>b){
+        return 1
+    }else{
+        return -1
+    }
+
+})
+}
+let arr1 = [1,2,3,4,5,43,4533,5,5,64,23,4,443,4,8,13];
+document. write(check(arr1));
+</script>
+</body>
+</html>

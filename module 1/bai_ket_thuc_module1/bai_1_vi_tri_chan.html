@@ -7,31 +7,30 @@
 <body>
 <script>
     let doDai;
-    let array= []
-    let sum1=0;
-    let sum2=0;
-do{
-    doDai= +prompt("nhập độ dài mảng: ");
-    if (isNaN(doDai)||doDai>50){
-        alert("NHAP LAI");
-    }
-}
-while (doDai>50){
-    for (let i = 0; i <doDai ; i++) {
-        array[i]= +prompt("nhap so:  "+ (i));
-    }
-    for (let i = 0; i <array.length ; i++) {
-        if(i%2===0){
-            sum1+= parseInt(array[i]);
+    let array = [];
+    let sum1 = 0;
+    let sum2 = 0;
+    do {
+        doDai = +prompt("nhập độ dài mảng: ");
+        if (isNaN(doDai) || doDai > 50) {
+            alert("NHAP LAI");
         }
-        if(i%2!==0){
-            sum2+=parseInt(array[i]);
+    } while (doDai > 50);
+
+    for (let i = 0; i < doDai; i++) {
+        array[i] = +prompt("nhap so:  " + (i + 1));
     }
+    for (let i = 0; i < array.length; i++) {
+        if (i % 2 === 0) {
+            sum1 += parseInt(array[i]);
+        } else {
+            sum2 += parseInt(array[i]);
+        }
 
     }
-}
-document.write(array+"<br>");
-document.write(sum1-sum2);
+
+    document.write(array + "<br>");
+    document.write(sum1 - sum2);
 
 </script>
 </body>

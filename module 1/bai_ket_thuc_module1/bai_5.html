@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="themMoi()">Thêm mới</button>
+<p id="display"></p>
+<script>
+    class XeMay{
+        constructor(bienKS,chuSoHuu,hangXe) {
+            this.bienKS =bienKS;
+            this.chuSoHuu = chuSoHuu;
+            this.hangXe = hangXe;
+        }
+        setBienKS(bienKS){
+            this.bienKS =bienKS;
+        }
+        setChuSoHuu(chuSoHuu){
+            this.chuSoHuu = chuSoHuu;
+        }
+        setHangXe(hangXe){
+            this.hangXe = hangXe;
+        }
+        getBienKS(){
+            return this.bienKS;
+        }
+        getChuSoHuu(){
+            return this.chuSoHuu;
+        }
+        getHangXe(){
+            return this.hangXe;
+        }
+    }
+
+    let xe1 = new XeMay("43-K199999","Trường", "HonDa")
+    let xe2 = new XeMay("43-K199997","Trường2", "HonDa")
+    let xe3 = new XeMay("43-K199996","Trường3", "HonDa")
+    let danhSachXe =[xe1,xe2,xe3];
+    // gọi hàm hiện thị
+    display(danhSachXe);
+    // định nghĩa hàm them mới
+    function themMoi() {
+        let bienKS = prompt("nhập vào biển kiểm soát");
+        let chuSoHuu = prompt("nhập vào chủ sở hữu");
+        let hangXe = prompt("nhập vào hãng xe");
+        let xeMoi = new XeMay(bienKS,chuSoHuu,hangXe);
+        danhSachXe.push(xeMoi);
+        display(danhSachXe);
+    }
+    // định nghĩa hàm hiện thị
+    function display(danhSach) {
+        let tableString ='<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>BKS</th>\n' +
+            '        <th>Chủ sở hữu</th>\n' +
+            '        <th>Hãng xe</th>\n' +
+            '    </tr>';
+        for (let i = 0; i <danhSach.length ; i++) {
+            tableString +='<tr>\n' +
+                '        <td>'+(i+1)+'</td>\n' +
+                '        <td>'+danhSach[i].getBienKS()+'</td>\n' +
+                '        <td>'+danhSach[i].getChuSoHuu()+'</td>\n' +
+                '        <td>'+danhSach[i].getHangXe()+'</td>\n' +
+                '    </tr>';
+        }
+        tableString += '</table>';
+        document.getElementById("display").innerHTML= tableString;
+    }
+</script>
+</body>
+</html>

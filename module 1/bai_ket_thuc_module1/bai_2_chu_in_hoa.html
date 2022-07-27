@@ -9,28 +9,30 @@
 <!--Nếu là chuỗi rỗng “” => thì trả về một mảng [0,0]-->
 
 <script>
-function kiemTra(str) {
-    str = str.trim();
-    let arrInput = str.split('');
-    let amount1 = 0;
-    let amount2 = 0;
-    let arrOutput = [];
-    for (let i = 0; i < arrInput.length; i++) {
-        if (arrInput[i] == arrInput[i].toUpperCase() && arrInput[i] !== " ") {
-            amount1 = amount1 + 1;
+    function kiemTra(str) {
+        str = str.trim();
+        let arrInput = str.split('');
+        let amount1 = 0;
+        let amount2 = 0;
+        let arrOutput = [];
+        let result='';
+        for (let i = 0; i < arrInput.length; i++) {
+            if (arrInput[i] === arrInput[i].toUpperCase() && arrInput[i] !== " ") {
+                amount1 = amount1 + 1;
+            } else if (arrInput[i] === arrInput[i].toLowerCase() && arrInput[i] !== " ") {
+                amount2 = amount2 + 1;
+            } else {
+                arrOutput = [0, 0];
+            }
         }
-        if (arrInput[i] == arrInput[i].toLowerCase() && arrInput[i] !== " ") {
-            amount2 = amount2 + 1;
-
-        } else {
-            arrOutput = [0, 0];
-        }
+        arrOutput = [amount1, amount2];
+        result+=arrInput +'<br>';
+        result+=arrOutput;
+        return result;
     }
-    arrOutput = [amount1,amount2];
-    return arrOutput
-}
-    let str1 = "LE Duc vinh konNIchiwa KOnbanwa";
-    document.write(kiemTra(str1))
+
+    let str1 = "   fghrthj hgEEEE     BBDwqeed   ";
+    document.write(kiemTra(str1));
 
 </script>
 </body>
