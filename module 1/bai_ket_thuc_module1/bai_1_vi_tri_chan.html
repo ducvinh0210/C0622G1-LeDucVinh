@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let doDai;
+    let array= []
+    let sum1=0;
+    let sum2=0;
+do{
+    doDai= +prompt("nhập độ dài mảng: ");
+    if (isNaN(doDai)||doDai>50){
+        alert("NHAP LAI");
+    }
+}
+while (doDai>50){
+    for (let i = 0; i <doDai ; i++) {
+        array[i]= +prompt("nhap so:  "+ (i));
+    }
+    for (let i = 0; i <array.length ; i++) {
+        if(i%2===0){
+            sum1+= parseInt(array[i]);
+        }
+        if(i%2!==0){
+            sum2+=parseInt(array[i]);
+    }
+
+    }
+}
+document.write(array+"<br>");
+document.write(sum1-sum2);
+
+</script>
+</body>
+</html>

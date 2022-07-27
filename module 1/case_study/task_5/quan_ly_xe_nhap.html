@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id=" table"></p>
+<button onclick="add()">nhap xe</button>
+
+<script>
+
+    class XeMay {
+        constructor(bienSo, chuSoHuu, loaiXe) {
+            this.bienSo = bienSo;
+            this.chuSoHuu = chuSoHuu;
+            this.loaiXe = loaiXe;
+        }
+
+        getBienSo() {
+            return this.bienSo;
+        }
+
+        getChuSoHuu() {
+            return this.chuSoHuu;
+        }
+
+        getLoaiXe() {
+            return this.loaiXe;
+        }
+
+        setBienSo(bienSo) {
+            this.bienSo = bienSo;
+        }
+
+        setChuSoHuu(chuSoHuu) {
+            this.chuSoHuu = chuSoHuu;
+        }
+
+        setLoaiXe(loaiXe) {
+            this.loaiXe = loaiXe;
+        }
+    }
+
+    let xe1 = new XeMay("92E1-31150", "Le Duc Vinh", "Mazda 3 Luxury");
+    let xe2 = new XeMay("92H3- 9297", "Pham Thi Vi", "Vinfast lux A2.0");
+    let arr = [xe1, xe2];
+    display();
+
+    function display() {
+        // arr.sort(function sortNames(a, b) {
+        //     let item1 = a.chuSoHuu.split(' ');
+        //     item1 = item1[item1.length - 1].toUpperCase();
+        //     let item2 = b.chuSoHuu.split(' ');
+        //     item2 = item2[item2.length - 1].toUpperCase();
+        //     let arr1 = [item1, item2];
+        //     arr1.sort()
+        //     if (arr1.indexOf(item1) == 1) {
+        //         return 1;
+        //     } else {
+        //         return -1;
+        //     }
+        // })
+        let tableString = "<table border='1'><tr><th colspan='6'>Quản lý xe</th></tr>";
+        tableString += "<tr><td>STT</td><td>Biển số</td><td>Chủ sỡ hữu</td><td>Hãng xe</td><td>Xóa</td><td>Sửa đổi</td></tr>";
+        for (let i = 0; i < arr.length; i++) {
+            tableString += "<tr>"
+            tableString += "<td>" + (i + 1) + "</td>"
+            tableString += "<td>" + arr[i].getBienSo() + "</td>"
+            tableString += "<td>" + arr[i].getChuSoHuu() + "</td>"
+            tableString += "<td>" + arr[i].getLoaiXe() + "</td>"
+            tableString += "<td><button onclick='deleteXe(" + i + ")'>Xóa</button></td>"
+            tableString += "<td><button onclick='editXe(" + i + ")'>Sửa đổi</button></td>"
+            tableString += "</tr>"
+        }
+
+        tableString += "</table>"
+        document.getElementById("table").innerHTML = tableString;
+    }
+
+    function add() {
+        let bienSo = prompt("nhap bien  so");
+        let chuSoHuu = prompt(" nhập chủ sở hữu");
+        let hangXe = prompt("nhập hãng xe");
+        arr.push(new XeMay(bienSo, chuSoHuu, hangXe));
+        display()
+    }
+
+    function deleteXe(i) {
+        arr.splice(i, 1)
+        display()
+    }
+
+    function editXe(i) {
+        let bienSo = prompt("nhap bien  so");
+        let chuSoHuu = prompt(" nhập chủ sở hữu");
+        let hangXe = prompt("nhập hãng xe");
+        arr.splice(i, 1, new XeMay(bienSo, chuSoHuu, hangXe));
+        display()
+    }
+</script>
+</body>
+</html>

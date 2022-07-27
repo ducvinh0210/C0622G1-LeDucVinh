@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--HellOCodeym => kết quả trả về : [3,8]=> 3: ký tự in hoa, 8 ký tự thường-->
+<!--Nếu là chuỗi rỗng “” => thì trả về một mảng [0,0]-->
+
+<script>
+function kiemTra(str) {
+    str = str.trim();
+    let arrInput = str.split('');
+    let amount1 = 0;
+    let amount2 = 0;
+    let arrOutput = [];
+    for (let i = 0; i < arrInput.length; i++) {
+        if (arrInput[i] == arrInput[i].toUpperCase() && arrInput[i] !== " ") {
+            amount1 = amount1 + 1;
+        }
+        if (arrInput[i] == arrInput[i].toLowerCase() && arrInput[i] !== " ") {
+            amount2 = amount2 + 1;
+
+        } else {
+            arrOutput = [0, 0];
+        }
+    }
+    arrOutput = [amount1,amount2];
+    return arrOutput
+}
+    let str1 = "LE Duc vinh konNIchiwa KOnbanwa";
+    document.write(kiemTra(str1))
+
+</script>
+</body>
+</html>

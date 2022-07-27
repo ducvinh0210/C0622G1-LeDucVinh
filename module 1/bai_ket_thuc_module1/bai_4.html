@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Mã máy (str    ing)-->
+<!--+ Tên máy(string)-->
+<!--+ Tên Hãng sản xuất (string)-->
+<!--+ Giá bán (number).-->
+<script>
+    class MayTinh{
+        constructor(maMay,tenMay,hangSanXuat,giaBan) {
+            this.maMay= maMay;
+            this.tenMay=tenMay;
+            this.hangSanXuat= hangSanXuat;
+            this.giaBan= giaBan;
+        }
+        setMaMay(maMay){
+            this.maMay=maMay;
+        }
+        setTenMay(tenMay){
+            this.tenMay=tenMay;
+        }
+        setHangSanXuat(hangSanXuat) {
+            this.hangSanXuat = hangSanXuat;
+        }
+        setGiaBan(giaBan){
+            this.giaBan = giaBan;
+        }
+        getMaMay(){
+            return this.maMay;
+
+        }
+        getTenMay(){
+            return this.tenMay;
+        }
+        getHangSanXuat(){
+            return this.hangSanXuat;
+
+        }
+        getGiaBan(){
+            return this.giaBan;
+        }
+    }
+    let mayTinh1 = new MayTinh("123","m1","dell","200");
+    let mayTinh2 = new MayTinh("234","m2","msi","300");
+
+
+
+
+
+</script>
+</body>
+</html>
