@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function chuanHoa(str) {
+        str = str.trim();
+         let arrInput = str.split(' ');
+        if (arrInput.length === 1) {
+            alert("co 1 ky tu nen khoong the viet tat");
+            return arrInput;
+        } else {
+            let strOutput = '';
+            for (let i = 0; i < arrInput.length; i++) {
+                strOutput += arrInput[i][0].toUpperCase();
+            }
+            return strOutput;
+        }
+
+    }
+    function check(str1){
+        let kiemTra = str1.split('');
+        for (let i = 0; i < kiemTra.length; i++) {
+            if (kiemTra[i] === " " && kiemTra[i + 1] === " ") {
+                kiemTra.splice(i, 1);
+                i--;
+            }
+        }
+
+        return kiemTra.join('');
+    }
+
+    let str1 = "     lE  DUc       ViHHH     ";
+    let chuan =check(str1);
+    let chuanHoa1 =chuanHoa(chuan);
+
+    document.write(chuanHoa1);
+
+</script>
+
+
+</body>
+</html>
