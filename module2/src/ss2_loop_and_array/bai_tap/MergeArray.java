@@ -32,4 +32,4 @@ public class MergeArray {
         }
         System.out.println(Arrays.toString(arr2));
     }
-}
+    }
