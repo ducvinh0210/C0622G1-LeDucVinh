@@ -1,16 +1,18 @@
-package ss2_loop_and_array.bai_tap;
+package ss2_loop_and_array.thuc_hanh;
 import java.util.Scanner;
-public class DeleteElementInArray {
+
+public class test1 {
     public static void main(String[] args) {
-        int[] arr = {10,12,14,16,18,20,22,24,28,26,28,30};
         Scanner scanner = new Scanner(System.in);
-       // int number;
-        System.out.println("nhap so");
-       int number = scanner.nextInt();
-      // int[] arr = {10,12,14,16,18,20,22,24,28,26,28,30};
+        int[] arr = {1,2,3,4,5,5,7,8,9,10};
+
+        int x;
+
+        System.out.println("Input the number you want to erase");
+        x = Integer.parseInt(scanner.nextLine());
 
         for (int i = 0; i < arr.length; i++) {
-            if(number == arr[i]) {
+            if(x == arr[i]) {
                 for (int j = i; j < (arr.length - 1); j++) {
                     arr[j] = arr[j + 1];
                     i--;
@@ -24,4 +26,5 @@ public class DeleteElementInArray {
         }
         System.out.println(arr[arr.length-1]);
     }
+
 }
