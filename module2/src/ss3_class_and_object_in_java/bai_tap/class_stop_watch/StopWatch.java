@@ -2,7 +2,7 @@ package ss3_class_and_object_in_java.bai_tap.class_stop_watch;
 
 public class StopWatch {
 
-    private double startTime,endTime;
+    long startTime,endTime;
     public StopWatch(){
 
     }
@@ -10,18 +10,12 @@ public class StopWatch {
     public void setStart() {
         this.startTime = System.currentTimeMillis();
     }
-    public void setStop() {
-        this.endTime = System.currentTimeMillis();
-    }
-
     public long getStart() {
         return startTime;
     }
-
-
-//    public void setStop() {
-//        this.endTime = System.currentTimeMillis();
-//    }
+    public void setStop() {
+        this.endTime = System.currentTimeMillis();
+    }
 
     public long getStop() {
         return endTime;
