@@ -5,7 +5,7 @@ public class MoneyConversion {
         Scanner sc = new Scanner(System.in);
         System.out.println(" Enter money: ");
 
-        double USD= sc.nextDouble();
+        double USD= Double.parseDouble(sc.nextLine());
         double VND= USD*23000;
         System.out.println("USD "+USD);
         System.out.println("VND"+VND);
