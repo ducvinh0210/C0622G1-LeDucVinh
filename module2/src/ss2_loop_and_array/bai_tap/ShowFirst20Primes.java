@@ -10,17 +10,12 @@ public class ShowFirst20Primes {
         int count = 0;
         int number =2;
         int prime;
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("nhap so ");
-//        number = sc.nextInt();
+        int count1;
         while (true) {
-            int count1=0;
-
-
+            count1=0;
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
                     count1++;
-
                 }
             }
             if (count1 == 0) {

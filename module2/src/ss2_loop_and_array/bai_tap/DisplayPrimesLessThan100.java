@@ -5,11 +5,12 @@ public class DisplayPrimesLessThan100 {
     public static void main(String[] args) {
         int number = 2;
         int prime;
+        int count;
 //        Scanner sc = new Scanner(System.in);
 //        System.out.println("nhap so ");
 //        number = sc.nextInt();
         while (true) {
-            int count = 0;
+             count = 0;
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
                     count++;
