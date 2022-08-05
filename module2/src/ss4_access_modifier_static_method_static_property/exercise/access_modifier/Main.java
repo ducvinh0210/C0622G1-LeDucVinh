@@ -8,6 +8,5 @@ public class Main {
         circle.setColor("blue");
         Circle circl1 = new Circle(3,"blue");
         System.out.println(circl1);
-
     }
 }
