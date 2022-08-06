@@ -9,8 +9,4 @@ Student student=  new Student();
         Student student1 = new Student("le duc vinh","c06");
         System.out.println(student1);
     }
-
-
-
-
 }

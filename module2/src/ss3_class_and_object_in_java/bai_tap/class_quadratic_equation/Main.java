@@ -1,14 +1,16 @@
 package ss3_class_and_object_in_java.bai_tap.class_quadratic_equation;
+
 import java.util.Scanner;
-public class main {
+
+public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter a: ");
-        double a = Double.parseDouble(scanner.nextLine());
+        double a = Double.parseDouble(sc.nextLine());
         System.out.println("Enter b: ");
-        double b = Double.parseDouble(scanner.nextLine());
+        double b = Double.parseDouble(sc.nextLine());
         System.out.println("Enter c: ");
-        double c = Double.parseDouble(scanner.nextLine());
+        double c = Double.parseDouble(sc.nextLine());
         QuadraticEquation quadraticEquation = new QuadraticEquation(a, b, c);
         if (quadraticEquation.getDiscriminant() == 0) {
             System.out.printf("phuong trinh bac 2 co  nghiem kep : %.2f \n", quadraticEquation.getRoot0());
@@ -18,14 +20,5 @@ public class main {
         } else {
             System.out.println("phuong trinh vo nghiem");
         }
-
-
     }
-
-
-
-
-
-
-
 }
