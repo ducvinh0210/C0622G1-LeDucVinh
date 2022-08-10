@@ -1,6 +1,6 @@
-package ss6_adstract_class_interface.exercise.model;
+package ss6_adstract_class_interface.exercise.interface_colorable.model;
 
-public class Circle  extends Shape{
+public class Circle extends Shape{
     private double radius =1.0;
     public Circle(){
     }

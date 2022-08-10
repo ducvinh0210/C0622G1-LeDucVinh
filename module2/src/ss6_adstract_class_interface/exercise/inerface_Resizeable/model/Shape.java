@@ -1,6 +1,6 @@
-package ss6_adstract_class_interface.exercise.model;
+package ss6_adstract_class_interface.exercise.inerface_Resizeable.model;
 
-public class Shape {
+public class Shape implements Resizeable {
     private String color = "green";
     private boolean filled = true;
     public Shape(){
@@ -25,7 +25,8 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
+@Override
+public void resize(double percent){};
     @Override
     public String toString() {
         return "A Shape with color of "

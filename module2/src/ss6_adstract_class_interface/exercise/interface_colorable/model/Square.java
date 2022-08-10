@@ -1,6 +1,6 @@
-package ss6_adstract_class_interface.exercise.model;
+package ss6_adstract_class_interface.exercise.interface_colorable.model;
 
-public class Square extends Rectangle {
+public class Square extends Rectangle{
     public  Square(){
 
     }
