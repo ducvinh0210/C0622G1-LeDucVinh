@@ -1,6 +1,6 @@
 package ss6_adstract_class_interface.exercise.interface_colorable.model;
 
-public class Shape implements Colorable{
+public abstract class Shape implements Colorable{
     private String color = "green";
     private boolean filled = true;
     public Shape(){
@@ -9,6 +9,10 @@ public class Shape implements Colorable{
         this.color = color;
         this.filled= filled;
     }
+
+    public abstract double getArea();
+
+
 
     public String getColor() {
         return color;

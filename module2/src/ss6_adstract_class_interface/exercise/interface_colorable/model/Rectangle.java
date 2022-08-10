@@ -46,4 +46,9 @@ public class Rectangle extends Shape{
                 +", which is a subclass of"
                 + super.toString();
     }
+
+    @Override
+    public String howToColor() {
+        return "to mau 4 canh";
+    }
 }

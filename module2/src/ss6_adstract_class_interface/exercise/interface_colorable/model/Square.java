@@ -1,6 +1,6 @@
 package ss6_adstract_class_interface.exercise.interface_colorable.model;
 
-public class Square extends Rectangle{
+public class Square extends Rectangle {
     public  Square(){
 
     }
@@ -17,6 +17,12 @@ public class Square extends Rectangle{
         setWidth(side);
         setLength(side);
     }
+
+    @Override
+    public String howToColor() {
+        return "to  mau 4 canh";
+    }
+
     @Override
     public String toString(){
         return "A Square with side="

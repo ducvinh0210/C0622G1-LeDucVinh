@@ -34,4 +34,9 @@ public class Circle extends Shape{
                 +", which is a subclass of"
                 + super.toString();
     }
+
+    @Override
+    public String howToColor() {
+        return "to mau duong vien";
+    }
 }
