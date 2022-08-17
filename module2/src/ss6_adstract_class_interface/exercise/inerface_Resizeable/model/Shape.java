@@ -34,4 +34,4 @@ public void resize(double percent){};
                 + " and "
                 + (isFilled() ? "filled" : "not filled");
     }
-}
+    }

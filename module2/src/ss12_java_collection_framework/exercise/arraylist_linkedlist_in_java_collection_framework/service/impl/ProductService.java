@@ -29,12 +29,15 @@ public class ProductService implements IProductService {
 
     @Override
     public void fixProduct() {
-        Product product= this.findIdProduct();
-        System.out.println("Ten can sua:");
-        Scanner scanner = new Scanner(System.in);
-         String setName = scanner.nextLine();
-        System.out.println("Nhap gia can sua");
-       // setPrice = scanner.nextLine();
+        Product product = this.findIdProduct();
+        System.out.println("Nhap ten san pham muon doi");
+        String name = scanner.nextLine();
+        product.setName(name);
+        System.out.println("Nhap gia san pham muon doi");
+        double price = Double.parseDouble(scanner.nextLine());
+        product.setPrice(price);
+        System.out.println("Sua thanh cong");
+
     }
 
     @Override

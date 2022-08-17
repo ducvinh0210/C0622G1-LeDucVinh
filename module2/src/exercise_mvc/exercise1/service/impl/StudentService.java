@@ -62,18 +62,18 @@ public class StudentService implements IStudentService {
     }
 
     public Student inforStudent() {
-        System.out.println("mời bạn nhập id");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.println("mời bạn nhập tên");
-        String name = scanner.nextLine();
-        System.out.println("mời bạn nhập ngày sinh");
-        String dateOfBirth = scanner.nextLine();
-        System.out.println("mời bạn nhập điểm");
-        double point = Double.parseDouble(scanner.nextLine());
-        System.out.println("mời bạn nhập tên lớp");
-        String nameClass = scanner.nextLine();
-        Student student = new Student(id, name, dateOfBirth, point, nameClass);
-        return student;
+            System.out.println("mời bạn nhập id");
+            int id = Integer.parseInt(scanner.nextLine());
+            System.out.println("mời bạn nhập tên");
+            String name = scanner.nextLine();
+            System.out.println("mời bạn nhập ngày sinh");
+            String dateOfBirth = scanner.nextLine();
+            System.out.println("mời bạn nhập điểm");
+            double point = Double.parseDouble(scanner.nextLine());
+            System.out.println("mời bạn nhập tên lớp");
+            String nameClass = scanner.nextLine();
+            Student student = new Student(id, name, dateOfBirth, point, nameClass);
+            return student;
     }
 
 
