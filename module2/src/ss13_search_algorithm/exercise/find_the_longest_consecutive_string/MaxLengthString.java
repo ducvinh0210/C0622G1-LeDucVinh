@@ -11,6 +11,8 @@ public class MaxLengthString {
         System.out.println("nhap mang");
         String string = input.nextLine();
         LinkedList<Character> max = new LinkedList<>();
+
+
        // LinkedList<Character> str2= new LinkedList<>();
         for (int i = 0; i <string.length() ; i++) {
          LinkedList<Character> str2= new LinkedList<>();
@@ -18,6 +20,8 @@ public class MaxLengthString {
             for (int j = i+1; j <string.length() ; j++) {
                 if(string.charAt(j)>str2.getFirst()){
                     str2.add(string.charAt(j));
+                }else {
+                    break;
                 }
 
             }
