@@ -108,7 +108,7 @@ return null;
         String nameProduct = scanner.nextLine();
         Product product = new Product();
         for (int i = 0; i <products.size() ; i++) {
-            if(products.get(i).getName().contains(nameProduct)){
+            if(products.get(i).getName().equals(nameProduct)  ){
                 product= products.get(i);
                 break;
             }else {

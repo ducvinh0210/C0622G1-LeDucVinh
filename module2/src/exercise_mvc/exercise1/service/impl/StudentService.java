@@ -13,9 +13,11 @@ public class StudentService implements IStudentService {
 
     static {
         students.add(new
-                Student(1, "Vinh", "22/11/2000", 9, "C06"));
+                Student(1, "Vinh", "22/11/1998", 9, "C06"));
         students.add(new
-                Student(1, "Vinh", "22/11/2000", 9, "C06"));
+                Student(2, "Vi", "22/11/2000", 9, "C06"));
+        students.add(new
+                Student(3, "Duc", "1/11/2000", 9, "c06"));
     }
 
     @Override
@@ -62,19 +64,63 @@ public class StudentService implements IStudentService {
     }
 
     public Student inforStudent() {
-            System.out.println("mời bạn nhập id");
-            int id = Integer.parseInt(scanner.nextLine());
-            System.out.println("mời bạn nhập tên");
-            String name = scanner.nextLine();
-            System.out.println("mời bạn nhập ngày sinh");
-            String dateOfBirth = scanner.nextLine();
-            System.out.println("mời bạn nhập điểm");
-            double point = Double.parseDouble(scanner.nextLine());
-            System.out.println("mời bạn nhập tên lớp");
-            String nameClass = scanner.nextLine();
-            Student student = new Student(id, name, dateOfBirth, point, nameClass);
-            return student;
+        System.out.println("mời bạn nhập id");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("mời bạn nhập tên");
+        String name = scanner.nextLine();
+        System.out.println("mời bạn nhập ngày sinh");
+        String dateOfBirth = scanner.nextLine();
+        System.out.println("mời bạn nhập điểm");
+        double point = Double.parseDouble(scanner.nextLine());
+        System.out.println("mời bạn nhập tên lớp");
+        String nameClass = scanner.nextLine();
+        Student student = new Student(id, name, dateOfBirth, point, nameClass);
+        return student;
     }
 
+    // tìm kiếm học sinh theo id và tên
+    public void searchStudent() {
+        System.out.println("bạn muốn sửa theo 1.id hay 2.tên");
+        System.out.println("mời bạn nhập vào đây");
+        int choice = scanner.nextInt();
+        if (choice == 1) {
+            System.out.println("Mời bạn nhập id cần sửa");
+            int findId = scanner.nextInt();
+            for (Student student : students) {
+                if (student.getId() == findId) {
+                    System.out.println(student.toString());
+                }
+            }
+        } else if (choice == 2) {
+            System.out.println("Mời bạn nhập tên cần sửa");
+            String findName = scanner.nextLine();
+            for (Student student : students) {
+                if (student.getName().contains(findName)) ;
+
+            }
+        } else {
+            System.out.println("Bạn nhập sai");
+        }
+
+    }
+// Sắp xếp theo tên hoc sinh
+
+    @Override
+    public void sortStudent() {
+        boolean isWap = true;
+        Student temp;
+        for (int i = 0; i < students.size() - 1 && isWap; i++) {
+            isWap = false;
+            for (int j = 0; j < students.size() - 1 - i; j++) {
+                if (students.get(i).getName().compareTo(students.get(j + 1).getName()) > 0) {
+                    isWap = true;
+                    temp = students.get(j + 1);
+                    students.set(j + 1, students.get(j));
+                    students.set(j, temp);
+                }
+            }
+        }
+        displayAllStudent();
+    }
 
 }
