@@ -17,7 +17,8 @@ public class StudentController {
             System.out.println("2. Thêm mới học sinh");
             System.out.println("3. Tìm thông tin học sinh");
             System.out.println("4. Xóa học sinh");
-            System.out.println("5. Exit");
+            System.out.println("5. Sắp xếp học sinh");
+            System.out.println("6. Exit");
             System.out.println("Mời bạn nhập chức năng từ 1-->5:");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {

@@ -22,6 +22,8 @@ public class StudentController {
                case 2:
                    studentService.displayAll();
                    break;
+               case 3:
+
 
            }
        }
