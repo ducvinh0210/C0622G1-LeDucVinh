@@ -20,6 +20,7 @@ public class StudentService implements IStudentService {
                 Student(3, "Duc", "1/11/2000", 9, "c06"));
     }
 
+    // them moi hoc sinh
     @Override
     public void addStudent() {
         Student student = this.inforStudent();
@@ -27,7 +28,7 @@ public class StudentService implements IStudentService {
         System.out.println("Them moi hoc sinh thanh cong");
     }
 
-
+    //  hien thi hoc sinh
     @Override
     public void displayAllStudent() {
         for (Student student : students) {
@@ -35,6 +36,7 @@ public class StudentService implements IStudentService {
         }
     }
 
+    // xoa hoc sinh
     @Override
     public void removeStudent() {
         Student student = this.findStudent();
@@ -64,8 +66,26 @@ public class StudentService implements IStudentService {
     }
 
     public Student inforStudent() {
-        System.out.println("mời bạn nhập id");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = 0;
+        while (true) {
+            try {
+                System.out.println("mời bạn nhập id");
+                id = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("ban nhap khong phai so");
+            } catch (Exception e) {
+                if (id <= 0) {
+                    System.out.println("ban nhap khong hop le");
+                }
+            }
+
+        }
+        if (id <= 0) {
+            System.out.println("khong duoc thuc hien");
+
+        }
+
         System.out.println("mời bạn nhập tên");
         String name = scanner.nextLine();
         System.out.println("mời bạn nhập ngày sinh");
@@ -84,15 +104,26 @@ public class StudentService implements IStudentService {
         System.out.println("mời bạn nhập vào đây");
         int choice = scanner.nextInt();
         if (choice == 1) {
-            System.out.println("Mời bạn nhập id cần sửa");
-            int findId = scanner.nextInt();
+            int findId = 0;
+            // while (true) {
+            try {
+                System.out.println("Mời bạn nhập id cần tim");
+                findId = scanner.nextInt();
+                // break;
+            } catch (NumberFormatException e) {
+                System.out.println("ban nhap khong phai so, xin nhap lai");
+            } catch (Exception e) {
+                System.out.println("ban nhap khong hop le, xin nhap le");
+            }
+            // }
             for (Student student : students) {
                 if (student.getId() == findId) {
                     System.out.println(student.toString());
                 }
             }
+
         } else if (choice == 2) {
-            System.out.println("Mời bạn nhập tên cần sửa");
+            System.out.println("Mời bạn nhập tên cần tim");
             String findName = scanner.nextLine();
             for (Student student : students) {
                 if (student.getName().contains(findName)) ;
