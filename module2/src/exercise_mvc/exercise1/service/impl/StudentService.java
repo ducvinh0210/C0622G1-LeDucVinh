@@ -159,7 +159,7 @@ public class StudentService implements IStudentService {
         }
         displayAllStudent();
     }
-
+// doc ghi file
     @Override
     public void readFile() {
         try {
@@ -181,10 +181,10 @@ public class StudentService implements IStudentService {
                 students.add(new Student(Integer.parseInt(student[0]), student[1],
                         student[2], student[3], Double.parseDouble(student[4]), student[5]));
             }
-            System.out.println("Đọc file thành công!");
+            System.out.println("doc thanh cong");
             bufferedReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Không tìm thấy file!");
+            System.out.println("file khong tim thay");
         } catch (IOException e) {
             e.printStackTrace();
         }
