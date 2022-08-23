@@ -3,6 +3,7 @@ package exercise_mvc.exercise1.service.impl;
 import exercise_mvc.exercise1.model.Student;
 import exercise_mvc.exercise1.service.IStudentService;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -81,10 +82,15 @@ public class StudentService implements IStudentService {
             }
 
         }
-        if (id <= 0) {
-            System.out.println("khong duoc thuc hien");
-
+        while (true) {
+            try {
+                if (id <= 0) ;
+                break;
+            } catch (Exception e) {
+                System.out.println("khong duoc thuc hien");
+            }
         }
+
 
         System.out.println("mời bạn nhập tên");
         String name = scanner.nextLine();
@@ -154,4 +160,33 @@ public class StudentService implements IStudentService {
         displayAllStudent();
     }
 
+    @Override
+    public void readFile() {
+        try {
+            System.out.print("xin nhap duong dan file: ");
+            String studentPath = scanner.nextLine();
+
+            File fileStudent = new File(studentPath);
+
+            if (!fileStudent.exists()) {
+                throw new FileNotFoundException();
+            }
+
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(fileStudent));
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] student = line.split(",");
+
+                students.add(new Student(Integer.parseInt(student[0]), student[1],
+                        student[2], student[3], Double.parseDouble(student[4]), student[5]));
+            }
+            System.out.println("Đọc file thành công!");
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Không tìm thấy file!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

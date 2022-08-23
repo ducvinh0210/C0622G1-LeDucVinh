@@ -4,7 +4,7 @@ public class Student extends Person {
     private double point;
     private String nameClass;
 
-    public Student() {
+    public Student(int i, String s, String s1, String s2, double v, String s3) {
 
     }
 

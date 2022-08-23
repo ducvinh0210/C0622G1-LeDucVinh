@@ -11,5 +11,5 @@ public interface IStudentService {
 //    void sortStudent();
     void searchStudent();
     void sortStudent();
-
+void  readFile();
 }
