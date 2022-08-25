@@ -23,7 +23,7 @@ public class MainView {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    carController.menu();
+                    carController.menuManage();
                     break;
                 case 2:
 

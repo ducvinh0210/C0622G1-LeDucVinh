@@ -4,8 +4,12 @@ public class Student extends Person {
     private double point;
     private String nameClass;
 
-    public Student(int i, String s, String s1, String s2, double v, String s3) {
+//    public Student(int i, String s, String s1, String s2, double v, String s3) {
+//
+//    }
 
+
+    public Student() {
     }
 
     @Override
@@ -27,4 +31,19 @@ public class Student extends Person {
         this.nameClass = nameClass;
     }
 
+    public double getPoint() {
+        return point;
+    }
+
+    public void setPoint(double point) {
+        this.point = point;
+    }
+
+    public String getNameClass() {
+        return nameClass;
+    }
+
+    public void setNameClass(String nameClass) {
+        this.nameClass = nameClass;
+    }
 }
