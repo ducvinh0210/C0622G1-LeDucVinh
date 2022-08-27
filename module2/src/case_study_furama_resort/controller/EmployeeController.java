@@ -11,12 +11,12 @@ public class EmployeeController {
 
     public void displayEmployeeMenu() {
         while (true) {
-            System.out.println("_________________________");
-            System.out.println("Chào mừng bạn đến với Furama Resort của chúng tôi");
-            System.out.println("1. Hiển thị danh sách nhân viên");
-            System.out.println("2. Thêm nhân viên");
-            System.out.println("3. SỬa thông tin nhân viên");
-            System.out.println("4. Trả về trang chính");
+                System.out.println("_________________________");
+                System.out.println("Chào mừng bạn đến với Furama Resort của chúng tôi");
+                System.out.println("1. Hiển thị danh sách nhân viên");
+                System.out.println("2. Thêm nhân viên");
+                System.out.println("3. SỬa thông tin nhân viên");
+                System.out.println("4. Trả về trang chính");
             try {
                 System.out.println(" Mời bạn nhập chức năng 1-->4");
                 int choice1 = Integer.parseInt(scanner.nextLine());
