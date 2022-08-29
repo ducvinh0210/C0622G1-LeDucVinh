@@ -42,6 +42,7 @@ public class StudentService implements IStudentService {
     //  hien thi hoc sinh
     @Override
     public void displayAllStudent() {
+        students= this.readFileStudent();
         for (Student student : students) {
             System.out.println(student);
         }
@@ -246,7 +247,7 @@ public class StudentService implements IStudentService {
     }
 
     private String convertStudentToString(Student student) {
-        return student.getId() + "," + student.getName() + "'" + student.getDateOfBirth() + "," + student.getPoint() + "," + student.getNameClass();
+        return student.getId() + "," + student.getName() + "," + student.getDateOfBirth() + "," + student.getPoint() + "," + student.getNameClass();
     }
 
     private List<String> convertListStudentToListString(List<Student> students) {
