@@ -7,9 +7,11 @@ import java.util.Scanner;
 
 public class EmployeeController {
     private static Scanner scanner = new Scanner(System.in);
-    private IEmployeeService employeeService = new EmployeeService();
+    private static IEmployeeService employeeService = new EmployeeService();
+
 
     public void displayEmployeeMenu() {
+        int choice1;
         while (true) {
                 System.out.println("_________________________");
                 System.out.println("Chào mừng bạn đến với Furama Resort của chúng tôi");
@@ -17,9 +19,8 @@ public class EmployeeController {
                 System.out.println("2. Thêm nhân viên");
                 System.out.println("3. SỬa thông tin nhân viên");
                 System.out.println("4. Trả về trang chính");
-            try {
                 System.out.println(" Mời bạn nhập chức năng 1-->4");
-                int choice1 = Integer.parseInt(scanner.nextLine());
+                choice1 = Integer.parseInt(scanner.nextLine());
                 switch (choice1) {
                     case 1:
                         employeeService.displayAllEmployee();
@@ -35,11 +36,6 @@ public class EmployeeController {
                     default:
                         System.out.println("Lựa chọn bạn không đúng");
                 }
-            }catch (NumberFormatException e){
-                System.out.println("Bạn nhập không đúng dạng số, mời nhập lại");
-            }catch (Exception e){
-                System.out.println( e.getMessage());
-            }
         }
 
 

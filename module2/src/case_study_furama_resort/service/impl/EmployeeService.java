@@ -3,6 +3,9 @@ package case_study_furama_resort.service.impl;
 import case_study_furama_resort.model.Employee;
 import case_study_furama_resort.service.IEmployeeService;
 import case_study_furama_resort.utils.exception.IdException;
+import case_study_furama_resort.utils.read_write.ReadAndWriteFileEmployee;
+import case_study_furama_resort.utils.read_write.WriteFile;
+import exercise_mvc.exercise1.utils.read_write.ReadFile;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -10,19 +13,23 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeService implements IEmployeeService {
+
+    public static final String PATH_EMPLOYEE = "src\\case_study_furama_resort\\data\\employeeFile.csv";
     private static Scanner scanner = new Scanner(System.in);
     private static List<Employee> employees = new ArrayList<>();
 
-    static {
-        employees.add(new
-                Employee("NV001", "Vinh", "22/11/1998", "Nam", 12345, 9876545, "ldvinh@gmail.com", "Dai hoc", "Giam Doc", 1000000));
-        employees.add(new
-                Employee("NV002", "Vi", "2/10/2000", "Nu", 23456, 8765432, "ptvi@gmail.com", "Dai hoc", "Quan ly", 900000));
-    }
+//    static {
+//        employees.add(new
+//                Employee("NV001", "Vinh", "22/11/1998", "Nam", 12345, 9876545, "ldvinh@gmail.com", "Dai hoc", "Giam Doc", 1000000));
+//        employees.add(new
+//                Employee("NV002", "Vi", "2/10/2000", "Nu", 23456, 8765432, "ptvi@gmail.com", "Dai hoc", "Quan ly", 900000));
+//    }
 
 
     @Override
     public void displayAllEmployee() {
+
+employees= ReadAndWriteFileEmployee.readEmployeeFile(PATH_EMPLOYEE);
         if (employees.size() == 0) {
             System.out.println("Không có thông tin để hiển thị");
         }
@@ -35,21 +42,24 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public void addEmployee() {
         Employee employee = this.inforEmployee();
-        employees.add(employee);
-//        List<Employee>employeeList= new ArrayList<>();
+       employees.add(employee);
+//        List<Employee> employeeList= new ArrayList<>();
 //        employeeList.add(employee);
+        ReadAndWriteFileEmployee.writeEmployeeFile(PATH_EMPLOYEE,employees,true);
         System.out.println("Thêm mới thành công");
-
+        System.out.println("Danh sách sau khi thêm mới");
+        ReadAndWriteFileEmployee.readEmployeeFile(PATH_EMPLOYEE);
+        displayAllEmployee();
 
     }
 
     @Override
     public void editEmployee() {
         System.out.println("Nhập id cần chỉnh sửa");
-        String employeeId= scanner.nextLine();
-        for (int i = 0; i <employees.size() ; i++) {
-            if(employees.get(i).getId().equals(employeeId)){
-                employees.set(i,inforEmployee());
+        String employeeId = scanner.nextLine();
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getId().equals(employeeId)) {
+                employees.set(i, inforEmployee());
             }
         }
         System.out.println("Bạn sửa thành công");
@@ -218,6 +228,47 @@ public class EmployeeService implements IEmployeeService {
         return null;
     }
 
+    /**
+     * doc ghi file
+     *
+     * @param src
+     * @return
+     */
+//    private List<Employee> readEmployeeFile(String src) {
+//        List<String> employeeList = ReadFile.readFile(path);
+//        List<Employee> employees = new ArrayList<>();
+//        if (employeeList.size() == 0) {
+//            System.out.println("Dữ liệu trong file không có");
+//            return null;
+//        } else {
+//            String[] propertiesOfEmployee;
+//            Employee employee;
+//            for (int i = 0; i < employeeList.size(); i++) {
+//                propertiesOfEmployee = employeeList.get(i).split(",");
+//                employee = new Employee(propertiesOfEmployee[0], propertiesOfEmployee[1],
+//                        propertiesOfEmployee[2], propertiesOfEmployee[3],
+//                        Integer.parseInt(propertiesOfEmployee[4]), Integer.parseInt(propertiesOfEmployee[5]),
+//                        propertiesOfEmployee[6], propertiesOfEmployee[7], propertiesOfEmployee[8],
+//                        Double.parseDouble(propertiesOfEmployee[9]));
+//                employees.add(employee);
+//            }
+//        }
+//        return employees;
+//    }
+
+
+//    private String convertEmployeeToString(Employee employee){
+//        return employee.getId()+","+employee.getName()+","+employee.getDateOfBirth()+","+employee.getGender()
+//                + ","+employee.getIdentityCard()+","+employee.getPhoneNumber()+","+employee.getEmail()+","+employee.getLevel()
+//                +","+employee.getJob()+","+employee.getSalary();
+//    }
+//    private List<String>convertListEmployeeToListString(List<Employee> employees){
+//        List<String> strings= new ArrayList<>();
+//        for (Employee employee:employees) {
+//            strings.add(convertEmployeeToString(employee));
+//        }
+//        return strings;
+//    }
 
 }
 

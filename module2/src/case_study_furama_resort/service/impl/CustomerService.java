@@ -12,36 +12,36 @@ public class CustomerService implements ICustomerService {
     private static Scanner scanner = new Scanner(System.in);
     private static List<Customer> customers = new LinkedList<>();
 
-    static {
-        customers.add(new
-                Customer("KH001", "Le Duc Vinh", "22/11/2000", "Nam", 122333, 959595, "ledvinh@gmail.com", "Diamond", "viet nam"));
-        customers.add(new
-                Customer("KH002", "Pham thi vi", "2/10/1998", "Nu", 111111, 33333, "phamthivi@gmail.com", "Diamond", "vietnam"));
-    }
+//    static {
+//        customers.add(new
+//                Customer("KH001", "Le Duc Vinh", "22/11/2000", "Nam", 122333, 959595, "ledvinh@gmail.com", "Diamond", "viet nam"));
+//        customers.add(new
+//                Customer("KH002", "Pham thi vi", "2/10/1998", "Nu", 111111, 33333, "phamthivi@gmail.com", "Diamond", "vietnam"));
+//    }
 
     @Override
     public void displayAllCustomer() {
-        for (Customer customer:customers
-             ) {
+        for (Customer customer : customers
+        ) {
             System.out.println(customer);
-            
+
         }
     }
 
     @Override
     public void addCustomer() {
-Customer customer= this.inforCustomer();
-customers.add(customer);
+        Customer customer = this.inforCustomer();
+        customers.add(customer);
         System.out.println("Them moi thanh cong");
     }
 
     @Override
     public void editCustomer() {
         System.out.println("Nhap id khach hang can sua");
-        String id= scanner.nextLine();
-        for (int i = 0; i <customers.size() ; i++) {
-            if (customers.get(i).getId().equals(id)){
-                customers.set(i,inforCustomer());
+        String id = scanner.nextLine();
+        for (int i = 0; i < customers.size(); i++) {
+            if (customers.get(i).getId().equals(id)) {
+                customers.set(i, inforCustomer());
             }
 
         }
@@ -50,7 +50,8 @@ customers.add(customer);
 
     /**
      * thông tin thêm mới khách hàng
-     * @return
+     *
+     * @return về khách hàng mới cần thêm vào
      */
 
 
@@ -115,5 +116,17 @@ customers.add(customer);
         Customer customer = new Customer(idCustomer, name, dateOfBirth, gender, identityCard, numberPhone, email, typeOfGuest, address);
         return customer;
 
+    }
+
+    public Customer findCustomer() {
+        System.out.println("mời bạn nhập id khách hàng");
+        String id = scanner.nextLine();
+        for (int i = 0; i < customers.size(); i++) {
+            if (customers.get(i).getId().equals(id)) {
+                return customers.get(i);
+            }
+
+        }
+        return null;
     }
 }

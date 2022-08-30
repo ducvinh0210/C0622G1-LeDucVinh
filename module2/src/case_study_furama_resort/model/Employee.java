@@ -49,11 +49,12 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "level='" + level + '\'' +
-                ", job='" + job + '\'' +
-                ", salary=" + salary +
-                '}'
-                +super.toString();
+//        return "Employee{" +
+//                "level='" + level + '\'' +
+//                ", job='" + job + '\'' +
+//                ", salary=" + salary +
+//                '}'
+//                +super.toString();
+        return super.toString()+","+level+","+job+","+salary;
     }
 }
