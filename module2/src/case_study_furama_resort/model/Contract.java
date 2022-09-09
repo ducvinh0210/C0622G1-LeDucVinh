@@ -67,5 +67,7 @@ public class Contract {
                 ", totalCost=" + totalCost +
                 ", idCustomer='" + idCustomer + '\'' +
                 '}';
+
+
     }
 }

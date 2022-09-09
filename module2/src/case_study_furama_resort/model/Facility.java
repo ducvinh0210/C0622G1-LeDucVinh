@@ -1,6 +1,7 @@
 package case_study_furama_resort.model;
 
 public abstract class Facility {
+    private String serviceCode;
     private String nameService;
     private double area;
     private double price;
@@ -10,12 +11,21 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String nameService, double area, double price, int numberOfPeople, String style) {
+    public Facility(String serviceCode, String nameService, double area, double price, int numberOfPeople, String style) {
+        this.serviceCode = serviceCode;
         this.nameService = nameService;
         this.area = area;
         this.price = price;
         this.numberOfPeople = numberOfPeople;
         this.style = style;
+    }
+
+    public String getServiceCode() {
+        return serviceCode;
+    }
+
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 
     public String getNameService() {
@@ -60,12 +70,13 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "nameService='" + nameService + '\'' +
-                ", area=" + area +
-                ", price=" + price +
-                ", numberOfPeople=" + numberOfPeople +
-                ", style='" + style + '\'' +
-                '}';
+//        return "Facility{" +
+//                "nameService='" + nameService + '\'' +
+//                ", area=" + area +
+//                ", price=" + price +
+//                ", numberOfPeople=" + numberOfPeople +
+//                ", style='" + style + '\'' +
+//                '}';
+        return   nameService+","+area+","+price+","+numberOfPeople+","+style;
     }
 }

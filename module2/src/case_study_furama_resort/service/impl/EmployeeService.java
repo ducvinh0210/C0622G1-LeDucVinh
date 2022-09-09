@@ -29,7 +29,7 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public void displayAllEmployee() {
 
-employees= ReadAndWriteFileEmployee.readEmployeeFile(PATH_EMPLOYEE);
+            employees= ReadAndWriteFileEmployee.readEmployeeFile(PATH_EMPLOYEE);
         if (employees.size() == 0) {
             System.out.println("Không có thông tin để hiển thị");
         }
@@ -45,7 +45,7 @@ employees= ReadAndWriteFileEmployee.readEmployeeFile(PATH_EMPLOYEE);
        employees.add(employee);
 //        List<Employee> employeeList= new ArrayList<>();
 //        employeeList.add(employee);
-        ReadAndWriteFileEmployee.writeEmployeeFile(PATH_EMPLOYEE,employees,true);
+        ReadAndWriteFileEmployee.writeEmployeeFile(PATH_EMPLOYEE,employees,false);
         System.out.println("Thêm mới thành công");
         System.out.println("Danh sách sau khi thêm mới");
         ReadAndWriteFileEmployee.readEmployeeFile(PATH_EMPLOYEE);
@@ -62,6 +62,7 @@ employees= ReadAndWriteFileEmployee.readEmployeeFile(PATH_EMPLOYEE);
                 employees.set(i, inforEmployee());
             }
         }
+        ReadAndWriteFileEmployee.writeEmployeeFile(PATH_EMPLOYEE,employees,false);
         System.out.println("Bạn sửa thành công");
 
     }
@@ -235,7 +236,7 @@ employees= ReadAndWriteFileEmployee.readEmployeeFile(PATH_EMPLOYEE);
      * @return
      */
 //    private List<Employee> readEmployeeFile(String src) {
-//        List<String> employeeList = ReadFile.readFile(path);
+//        List<String> employeeList = ReadFile.readFile(PATH_EMPLOYEE);
 //        List<Employee> employees = new ArrayList<>();
 //        if (employeeList.size() == 0) {
 //            System.out.println("Dữ liệu trong file không có");

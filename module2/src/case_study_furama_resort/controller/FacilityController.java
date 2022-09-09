@@ -27,9 +27,7 @@ public class FacilityController {
                     case 2:
                         facilityService.addFacility();
                         break;
-                    case 3:
-                        facilityService.displayFacilityMaintenance();
-                        break;
+
                     case 4:
                         return;
                     default:
