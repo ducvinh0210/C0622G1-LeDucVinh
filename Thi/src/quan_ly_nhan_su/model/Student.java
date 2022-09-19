@@ -1,6 +1,8 @@
 package quan_ly_nhan_su.model;
 
-public class Student  extends Person{
+import java.util.Comparator;
+
+public class Student  extends Person implements Comparable<Student> {
     private String nameClass;
     private double score;
 
@@ -52,5 +54,11 @@ public class Student  extends Person{
 //                ", score=" + score +
 //                '}';
         return super.toString()+","+nameClass+","+score;
+    }
+
+
+    @Override
+    public int compareTo(Student student) {
+      return this.getId().compareTo(student.getId());
     }
 }

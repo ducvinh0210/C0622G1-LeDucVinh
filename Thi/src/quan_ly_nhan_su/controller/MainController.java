@@ -10,6 +10,8 @@ public class MainController {
 
     public  void menuDisplay() throws IOException {
         while (true) {
+            System.out.println("_____________________________");
+            System.out.println("chao mung ban den voi chung toi");
             System.out.println("1.quan ly hoc vien");
             System.out.println("2.quan ly giao vien");
             System.out.println("3.exit");

@@ -7,6 +7,7 @@ import quan_ly_nhan_su.utils.read_write_file.WriteFileUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -112,12 +113,12 @@ public class StudentService implements IStudentService {
                             }
                         }
                         String genderStudent;
-                        while (true){
+                        while (true) {
                             try {
                                 System.out.println("nhap gioi tinh");
                                 genderStudent = scanner.nextLine();
-                                if (!(genderStudent.equals("Nam"))&&!(genderStudent.equals("Nu"))){
-                                    throw new   NumberFormatException("ban nhap khong dung dinh dang");
+                                if (!(genderStudent.equals("Nam")) && !(genderStudent.equals("Nu"))) {
+                                    throw new NumberFormatException("ban nhap khong dung dinh dang");
 
                                 }
                                 break;
@@ -176,14 +177,14 @@ public class StudentService implements IStudentService {
                         switch (choice2) {
                             case 1:
                                 String id;
-                                while (true){
+                                while (true) {
                                     try {
                                         System.out.println("nhap id");
                                         id = scanner.nextLine();
-                                        if (!id.matches("[0-9]{4}")){
-                                            throw new   NumberFormatException("ban nhap khong dung dinh dang");
+                                        if (!id.matches("[0-9]{4}")) {
+                                            throw new NumberFormatException("ban nhap khong dung dinh dang");
                                         }
-                                        id="SV-"+id;
+                                        id = "SV-" + id;
                                         break;
 
                                     } catch (NumberFormatException e) {
@@ -234,13 +235,105 @@ public class StudentService implements IStudentService {
         }
     }
 
+    @Override
+    public void sortStudent() throws IOException {
+        students = ReadFileUtils.readFileStudent(PATH_STUDENT);
+        boolean flag = true;
+        while (flag) {
+            try {
+                System.out.println("ban muon sap xep theo id hay theo diem");
+                System.out.println("1. theo id");
+                System.out.println("2.theo diemr");
+                System.out.println("3. ra menu chinh");
+                int choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        Collections.sort(students);
+                        for (Student student : students) {
+                            System.out.println(student.toString());
+                        }
+                        System.out.println("ban sap xep thanh cong");
+                        break;
+                    case 2:
+                        System.out.println("sap xep diem, neu trung thi sap theo teen");
+                        ScoreComparatorStudent scoreComparatorStudent = new ScoreComparatorStudent();
+                        Collections.sort(students, scoreComparatorStudent);
+                        for (Student student : students) {
+                            System.out.println(student.toString());
+
+                        }
+                        System.out.println("sap xep thanh cong");
+                        break;
+                    case 3:
+                        flag = false;
+                        break;
+                    default:
+                        System.out.println("ban nhap khong dung chuc nang");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("ban nhap khong dung dinh dang");
+            }
+        }
+    }
+
+    @Override
+    public void findInfoStudent() throws IOException {
+        students = ReadFileUtils.readFileStudent(PATH_STUDENT);
+
+        boolean flag = true;
+        while (flag) {
+            try {
+                System.out.println("ban muon tim theo id hay theo ten");
+                System.out.println("1. theo id");
+                System.out.println("2. theo ten");
+                System.out.println("3. thoat ra menu chinh");
+                int choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        System.out.println("moi bạn nhập id cần tìm");
+                        String searchId = scanner.nextLine();
+                        for (int i = 0; i < students.size(); i++) {
+                            if (students.get(i).getId().contains(searchId)) {
+                                System.out.println(students.get(i));
+                            }
+
+                        }
+                        flag = true;
+                        break;
+                    case 2:
+                        students = ReadFileUtils.readFileStudent(PATH_STUDENT);
+                        System.out.println("mời bạn nhập tên cần tìm");
+                        String searchName = scanner.nextLine();
+                        for (Student student : students) {
+                            if (student.getName().contains(searchName)) {
+                                System.out.println(student);
+
+                            }
+                        }
+                        flag = true;
+                        break;
+                    case 3:
+                        flag = false;
+                        break;
+                    default:
+                        System.out.println("ban nhap khong dung dinh dang");
+
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("ban nhap khong dung dinh dang");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
     public Student infoStudent() {
         String id;
         while (true) {
             try {
                 System.out.println("Moi ban nhap id");
                 id = scanner.nextLine();
-                if (!id.matches("[0-9]{4}")) {
+                if (!id.matches("[A-Z][0-9]{4}")) {
                     throw new NumberFormatException("ban nhap khong dung dinh dang");
 
                 }

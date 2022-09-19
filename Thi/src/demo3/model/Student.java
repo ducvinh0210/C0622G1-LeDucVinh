@@ -1,6 +1,10 @@
 package demo3.model;
 
-public class Student  extends Person{
+import java.util.Comparator;
+import java.util.Scanner;
+
+public class Student  extends Person implements Comparable <Student>  {
+    static Scanner scanner= new Scanner(System.in);
     private String nameClass;
     private double score;
 
@@ -43,4 +47,51 @@ public class Student  extends Person{
         return super.toString()+","+nameClass+","+score;
 
     }
+
+    @Override
+    public int compareTo(Student student) {
+        return this.getId().compareTo(student.getId());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    @Override
+//    public int compare(Student o1, Student o2) {
+//
+//
+//
+//        if(o1.getScore()>o2.getScore()){
+//            return 1;
+//
+//        }else if (o1.getScore()==o2.getScore()){
+//            if (o1.getName().compareTo(o2.getName())>0){
+//                return 1;
+//            }else if (o1.getName().compareTo(o2.getName())==0){
+//                return 0;
+//            }else {
+//                return -1;
+//            }
+//        }else {
+//            return -1;
+//
+//        }
+//    }
+
 }
+

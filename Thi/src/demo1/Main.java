@@ -26,18 +26,18 @@ public class Main<student3> {
 
 
 
-//        Collections.sort(students);
-//        for (Student student3: students) {
-//            System.out.println(student3.toString());
-//        }
-
-        AgeComparator ageComparator= new AgeComparator();
-        Collections.sort(students,ageComparator);
-        System.out.println("so sanh theo tuoi");
-        for (Student student4 : students) {
-            System.out.println(student4.toString());
-
+        Collections.sort(students);
+        for (Student student10: students) {
+            System.out.println(student10.toString());
         }
+
+//        AgeComparator ageComparator= new AgeComparator();
+//        Collections.sort(students,ageComparator);
+//        System.out.println("so sanh theo tuoi");
+//        for (Student student4 : students) {
+//            System.out.println(student4.toString());
+//
+//        }
 
 
     }

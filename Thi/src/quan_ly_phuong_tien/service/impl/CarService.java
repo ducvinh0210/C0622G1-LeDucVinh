@@ -73,10 +73,11 @@ public class CarService implements ICarService {
 
             }
         }else if(choice==2) {
+            cars= ReadFileUtils.readFileCar(PATH_CAR);
             System.out.println("moi ban nhap ten");
             String nameCar= scanner.nextLine();
             for (Car car: cars) {
-                if (car.getName().contains(nameCar));{
+                if (car.getName().contains(nameCar)){
                     System.out.println(car);
                 }
 
