@@ -1,5 +1,6 @@
 package quan_ly_phuong_tien.service.impl;
 
+import quan_ly_phuong_tien.model.Car;
 import quan_ly_phuong_tien.model.Truck;
 import quan_ly_phuong_tien.service.ITruckService;
 import quan_ly_phuong_tien.utils.read_write_file.ReadFileUtils;
@@ -57,11 +58,30 @@ public class TruckService implements ITruckService {
     }
 
     @Override
-    public void findTruck() {
+    public void findTruck() throws IOException {
+        trucks= ReadFileUtils.readFileTruck(PATH_TRUCK);
+//        Truck truck= this.findInfoTruck();
+//        if (truck==null){
+//            System.out.println("khong co thong tin de tim");
+//        }else {
+//            for (Truck truck1:trucks) {
+//                truck1.getId().contains(truck.getId());
+//
+//                System.out.println(truck);
+//            }
+//        }
+        System.out.println("moi ban nhap id can tim");
+        String idSearch= scanner.nextLine();
+        for (Truck truck:trucks) {
+            if (truck.getId().contains(idSearch)){
+                System.out.println(truck);
+            }
+        }
+
+
+
 
     }
-
-
     public Truck inforTruck() {
         String id;
         System.out.println("moi ban nhap bien kiem soat");

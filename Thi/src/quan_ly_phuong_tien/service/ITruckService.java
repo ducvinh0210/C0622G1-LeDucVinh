@@ -9,5 +9,5 @@ public interface ITruckService {
 
     void removeTruck() throws IOException;
 
-    void findTruck();
+    void findTruck() throws IOException;
 }

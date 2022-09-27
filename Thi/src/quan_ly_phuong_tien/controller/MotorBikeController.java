@@ -3,13 +3,14 @@ package quan_ly_phuong_tien.controller;
 import quan_ly_phuong_tien.service.IMotorBikeService;
 import quan_ly_phuong_tien.service.impl.MotorBikeService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MotorBikeController {
     static Scanner scanner = new Scanner(System.in);
     static IMotorBikeService motorBikeService = new MotorBikeService();
 
-    public void menuDisplayMotorBike() {
+    public void menuDisplayMotorBike() throws IOException {
         while (true) {
             System.out.println("1.them xe may");
             System.out.println("2.hien thi xe may");

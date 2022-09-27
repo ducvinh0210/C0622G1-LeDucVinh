@@ -18,10 +18,10 @@ public class TruckController {
 
     public void menuDisplayTruck() throws IOException {
         while (true){
-            System.out.println("1.them moi xe may");
+            System.out.println("1.them moi xe tai");
             System.out.println("2.hien thi danh sach xe");
             System.out.println("3. xoa xe");
-            System.out.println("4.sua danh sach xe");
+            System.out.println("4.tim  xe");
             System.out.println("5 exit");
             System.out.println("moi ban nhap chuc nang 1-->5");
             int choice2= Integer.parseInt(scanner.nextLine());
