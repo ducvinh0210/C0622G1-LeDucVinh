@@ -13,3 +13,13 @@ id int primary key,
 age int ,
 country varchar(50)
 );
+
+insert into	teacher values(4,'vinh',12,'quang nam');
+select * from	teacher ;
+select id,`name` from teacher;
+insert into teacher values(7,'vi',11,'quang nam');
+insert into teacher values(5,'van',37,'quang nam');
+select id,`name` from teacher;
+update teacher set `name` = 'ronaldo' where id =4;
+select * from teacher;
+
