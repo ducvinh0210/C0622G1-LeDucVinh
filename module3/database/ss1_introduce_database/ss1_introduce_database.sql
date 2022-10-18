@@ -22,4 +22,8 @@ insert into teacher values(5,'van',37,'quang nam');
 select id,`name` from teacher;
 update teacher set `name` = 'ronaldo' where id =4;
 select * from teacher;
+insert into teacher values (67,'fhfhf',37,'quang nam');
+insert into  teacher values(56,'ee7eye',7373,'viet nam');
+select * from teacher;
+
 
