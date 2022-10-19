@@ -82,6 +82,34 @@ on student.student_id = mark.student_id
 join subject
 on subject.sub_id = mark.sub_id
 order by mark desc, student.student_name;
+
+-- Sử dụng hàm count để hiển thị số lượng sinh viên ở từng nơi
+select address, count(student_id ) as	' So luong hoc vien' 
+from student
+group by address;
+
+-- : Tính điểm trung bình các môn học của mỗi học viên bằng cách sử dụng hàm AVG
+select s.student_id, s.student_name, avg(mark)
+from student s join mark m on s.student_id= m.student_id
+group by s.student_id, s.student_name;
+-- hiển thị tất cả các thông tin môn học(bảng môn học ) có credit lớn  nhất
+	select * from `subject` where  credit= (select max(credit) from `subject`);
+    
+    
+    -- Hiển thị các thông tin môn học có điểm thi lớn nhất
+    select * from `subject`join 
+    mark on `subject`.sub_id= mark.mark_id where mark=(select max(mark) from mark);
+    -- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
+ select student.*, avg(mark) as avarage_mark
+ from student join mark on student.student_id= mark.student_id
+ group by student.student_id
+ order by avg(mark) desc;
+    
+    
+    
+    
+
+
  
  
  
