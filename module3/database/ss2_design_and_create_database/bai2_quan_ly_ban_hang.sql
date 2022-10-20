@@ -85,6 +85,9 @@ inner join order_detail on `order`.id = order_detail.id
 inner join product on order_detail.id_product= product.id_product
 group by `order`.id;
 
+-- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
+ select 
+
 
 
 
