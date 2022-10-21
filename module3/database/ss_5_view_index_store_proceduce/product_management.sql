@@ -3,13 +3,13 @@ create database product_management ;
 use product_management ;
 create table product(
 id int auto_increment primary key ,
-productCode int,
-productName varchar(50),
-productPrice double,
-productAmount int,
-productDescription varchar(50),
-productStatus varchar(50));
-insert into product(productCode , productName , productPrice, productAmount ,productDescription, productStatus)
+product_code int,
+product_name varchar(50),
+product_price double,
+product_amount int,
+product_description varchar(50),
+product_status varchar(50));
+insert into product(product_code , product_name , product_price, product_amount ,product_description, product_status)
 value (1, "iphone" , 5000 , 5 , "iphone 14 promax" , "cháy hàng "),
       (2, "apple" , 5000 , 15 , "iphone 14 plus" , "cháy hàng "),
       (3, "nokia" , 5000 , 25 , "iphone 14" , "cháy hàng "),
@@ -36,19 +36,19 @@ value (1, "iphone" , 5000 , 5 , "iphone 14 promax" , "cháy hàng "),
       (28, "apple 3" , 3000 , 5 , "iphone 13" , "tồn kho"),
       (29, "apple 4" , 3000 , 5 , "iphone 13" , "tồn kho"),
       (30, "apple 14" , 3000 , 5 , "iphone 13" , "tồn kho");
-	EXPLAIN SELECT * FROM product WHERE productcode = 25;
-	CREATE UNIQUE INDEX index_productcode ON product(productcode);
-	Explain SELECT * FROM product WHERE productcode =25;
-    SELECT * FROM product WHERE productname = "apple 3" AND productprice = 3000;
-    CREATE INDEX index_composite ON product(productname,productprice);
-    EXPLAIN SELECT * FROM product WHERE productname = "apple 3" AND productprice = 3000;
+	EXPLAIN SELECT * FROM product WHERE product_code = 25;
+	CREATE UNIQUE INDEX index_productcode ON product(product_code);
+	Explain SELECT * FROM product WHERE product_code =25;
+    SELECT * FROM product WHERE product_name = "apple 3" AND product_price = 3000;
+    CREATE INDEX index_composite ON product(product_name,product_price);
+    EXPLAIN SELECT * FROM product WHERE product_name = "apple 3" AND product_price = 3000;
     
     DROP VIEW IF EXISTS product_view;
-    CREATE VIEW  product_view AS SELECT productCode, productName, productPrice, productStatus FROM product ;
+    CREATE VIEW  product_view AS SELECT product_code, product_name, product_price, product_status FROM product ;
 	SELECT * FROM product_view;
     
     update product_view 
-    set productStatus = "tồn kho" where productcode=1;
+    set product_status = "tồn kho" where product_code=1;
     DROP VIEW product_view;
     
     -- tạo store procedure
@@ -62,9 +62,9 @@ CALL all_records();
     
     -- Tạo store procedure thêm một sản phẩm mới
     Delimiter //
-Create Procedure add_record(in product_code int, product_name varchar(50), product_price double, product_amount int, product_description varchar(50), product_status varchar(20))
+Create Procedure add_record(in productcode int, productname varchar(50), productprice double, productamount int, productdescription varchar(50), productstatus varchar(20))
     BEGIN
-	INSERT INTO product (productcode, productname, productprice, productamount, productdescription,productstatus) VALUES (product_code,product_name,product_price,product_amount,product_description,product_status);
+	INSERT INTO product (product_code, product_name, product_price, product_amount, product_description,product_status) VALUES (productcode,productname,productprice,productamount,productdescription,productstatus);
     END//
 DELIMITER ;
     CALL add_record(31,'apple 15',6000,5,"iphone","tham hoa");
@@ -74,7 +74,7 @@ DELIMITER ;
 Create Procedure edit_record(in p_id INT, p_product_description varchar(50))
     BEGIN
     update product
-    set productdescription = p_product_description where id = p_id;
+    set product_description = p_product_description where id = p_id;
     END//
 DELIMITER ;
    CALL edit_record(1,"ok");  
