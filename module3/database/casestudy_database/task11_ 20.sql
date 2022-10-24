@@ -129,6 +129,59 @@ having sum(tong_tien)>1000000);
 SELECT *
  FROM khach_hang;
   
+  -- task 18 18.	Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
+  
+  ALTER TABLE khach_hang 
+  add trang_thai BOOLEAN DEFAULT 1 ;
+  UPDATE khach_hang
+  set trang_thai = 0 
+  WHERE ma_khach_hang in(SELECT ma_khach_hang from hop_dong 
+  WHERE year(hop_dong.ngay_lam_hop_dong)<2021);
+  SELECT* from khach_hang WHERE trang_thai = 0;
+  
+  -- cach 2
+  set foreign_key_check= 0;
+  DELETE from khach_hang 
+  WHERE khach_hang.ma_khach_hang in(
+  SELECT ma_khach_hang 
+  from hop_dong
+  WHERE year(hop_dong.ngay_lam_hop_dong)<2021);
+  SELECT* from khach_hang;
+  set foreign_key_check= 1;
+  
+ --  task 19 	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
+ 
+ UPDATE dich_vu_di_kem 
+ set gia=gia*2
+ WHERE dich_vu_di_kem.ma_dich_vu_di_kem in (SELECT hop_dong_chi_tiet.ma_dich_vu_di_kem from hop_dong_chi_tiet
+ JOIN hop_dong on hop_dong.ma_hop_dong= hop_dong_chi_tiet.ma_hop_dong
+ WHERE( year(hop_dong.ngay_lam_hop_dong)=2020) and (hop_dong_chi_tiet.so_luong>10)
+ group by hop_dong_chi_tiet.ma_dich_vu_di_kem);
+ SELECT* from dich_vu_di_kem;
+ 
+ -- task 20	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, 
+ -- thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), 
+ -- ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
+ SELECT 'nhan vien' as type, ma_nhan_vien as id, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi
+ from nhan_vien
+ UNION ALL
+ SELECT 'khach hang' as type, ma_khach_hang as id, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi
+ from khach_hang;
+ 
+ -- task 21
+ 
+ 
+	
+  
+  
+  
+
+  
+  
+
+  
+
+
   
  
 
