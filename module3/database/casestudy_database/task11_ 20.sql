@@ -125,7 +125,6 @@ FROM view2
 WHERE ten_loai_khach = "Platinium" 
 Group by ma_khach_hang
 having sum(tong_tien)>1000000);
-
 SELECT *
  FROM khach_hang;
   
@@ -135,7 +134,7 @@ SELECT *
   add trang_thai BOOLEAN DEFAULT 1 ;
   UPDATE khach_hang
   set trang_thai = 0 
-  WHERE ma_khach_hang in(SELECT ma_khach_hang from hop_dong 
+  WHERE khach_hang.ma_khach_hang in(SELECT ma_khach_hang from hop_dong 
   WHERE year(hop_dong.ngay_lam_hop_dong)<2021);
   SELECT* from khach_hang WHERE trang_thai = 0;
   
@@ -168,7 +167,31 @@ SELECT *
  SELECT 'khach hang' as type, ma_khach_hang as id, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi
  from khach_hang;
  
- -- task 21
+ -- task 21 21.	Tạo khung nhìn có tên là v_nhan_vien để lấy được thông tin của
+ -- tất cả các nhân viên có địa chỉ là “Hải Châu” và đã từng lập hợp đồng cho một hoặc nhiều khách hàng bất kì với ngày lập hợp đồng là “12/12/2019”.
+ drop view if EXISTS v_nhan_vien ;
+ create view v_nhan_vien as 
+ SELECT nhan_vien.* from nhan_vien
+ join hop_dong on nhan_vien.ma_nhan_vien= hop_dong.ma_nhan_vien
+ WHERE nhan_vien.dia_chi LIKE '%Đà Nẵng' ;
+ 
+  SELECT* from v_nhan_vien;
+
+  
+-- task 22 Thông qua khung nhìn v_nhan_vien thực hiện cập nhật địa chỉ thành “Liên Chiểu” đối với tất cả các nhân viên được nhìn thấy bởi khung nhìn này.
+set sql_safe_updates = 0;
+update v_nhan_vien
+set v_nhan_vien.dia_chi='Liên Chiểu' WHERE v_nhan_vien.dia_chi like '%Đà Nẵng';
+  set sql_safe_updates = 0;
+  
+  -- task 23
+
+
+ 
+ 
+ 
+ 
+ 
  
  
 	

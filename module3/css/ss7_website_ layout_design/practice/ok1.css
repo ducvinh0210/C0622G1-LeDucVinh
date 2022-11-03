@@ -1,13 +1,26 @@
-:root{
-    --text-color: green;
+body{
+    margin:0;
 }
-h1{
-    --my-color:red;
-    color: var(--my-color);
+#header{
+    background: green;
+    height: 100px;
+    width: 100%;
 }
-h2{
-    color: var(--text-color);
+#main{
+    background: gray;
+    height: 300px;
+    width: 70%;
+    float: left;
 }
-h3{
-    color: var(--text-color);
+#sidebar{
+    background: aqua;
+    height: 300px;
+    width: 30%;
+    float: left;
+}
+#footer{
+    background: pink;
+    height: 100px;
+    width: 100%;
+clear: both;
 }

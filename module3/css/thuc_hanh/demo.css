@@ -1,0 +1,29 @@
+.box{
+    width: 60px;
+    height: 60px;
+    color: #CDCDCD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+}
+.box1{
+    background-color: red;
+    margin-left: 20px;
+}
+.box2{
+    background-color: black;
+
+}
+.box3{
+    background-color: firebrick;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+    border-top: 10px solid #333333;
+    margin-top: 20px    ;
+
+
+}
