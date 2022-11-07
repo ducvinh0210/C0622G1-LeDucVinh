@@ -15,6 +15,54 @@
 
 </head>
 <body>
+<h1>Products</h1>
+<p>
+    <a href="/products?action=create">Them moi</a>
+</p>
+
+<form action="/products?action=search" method="post">
+    <input type="text"name="name">
+    <input type="submit" value="Tim kiem">
+
+
+
+</form>
+<table class="table table-dark">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Description</td>
+        <td>Manufactor</td>
+        <td>delete</td>
+        <td>edit</td>
+    </tr>
+
+        <c:forEach items='${products}' var="product">
+            <tr>
+                <td>${product.getId()}</td>
+                <td><a href="/products?action=view&id=${product.getId()}">${product.getName()}</a></td>
+                <td>${product.getPrice()}</td>
+                <td>${product.getDescription()}</td>
+                <td>${product.getManufacturer()}</td>
+                <td><button class="btn btn-primary"><a style="color: red" href="/products?action=edit&id=${product.getId()}">edit</a></button></td>
+                <td><button class="btn btn-primary"><a style="color: red" href="/products?action=delete&id=${product.getId()}">delete</a></button></td>
+
+
+
+
+</tr>
+
+
+
+        </c:forEach>
+
+
+
+
+</table>
+
+
 
 </body>
 </html>

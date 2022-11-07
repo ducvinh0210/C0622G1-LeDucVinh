@@ -50,7 +50,7 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public List<Product> search(String name) {
+    public List<Product> searchByName(String name) {
         List<Product> productList = new ArrayList<>();
         for (Product product : products.values()) {
             if (product.getName().contains(name)) {
