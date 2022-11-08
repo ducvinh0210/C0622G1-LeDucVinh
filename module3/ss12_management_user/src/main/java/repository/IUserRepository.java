@@ -15,6 +15,19 @@ public interface IUserRepository {
     List<User> selectUserByCountry(String country);
 
 
+//    ss13 Gọi MySql Stored Procedures từ JDBC
+User getUserById(int id);
+
+    void insertUserStore(User user) throws SQLException;
+
+    List<User> selectAllUsersBySP();
+
+    boolean updateUserBySP(User user) throws SQLException;
+
+    boolean deleteUserById(int id) throws SQLException;
+
+
+
 
 
 

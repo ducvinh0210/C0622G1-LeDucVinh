@@ -42,4 +42,35 @@ private IUserRepository userRepository= new UserRepository();
     public List<User> selectUserByCountry(String country) {
         return userRepository.selectUserByCountry(country);
     }
+
+
+//    ss13 Gọi MySql Stored Procedures từ JDBC
+@Override
+public User getUserById(int id) {
+    return userRepository.getUserById(id);
+}
+
+    @Override
+    public void insertUserStore(User user) throws SQLException {
+        userRepository.insertUserStore(user);
+    }
+
+    @Override
+    public List<User> selectAllUsersBySP() {
+        return userRepository.selectAllUsersBySP();
+    }
+
+    @Override
+    public boolean updateUserBySP(User user) throws SQLException {
+        return userRepository.updateUserBySP(user);
+    }
+
+    @Override
+    public boolean deleteUserById(int id) throws SQLException {
+        return userRepository.deleteUser(id);
+    }
+
+
+
+
 }
