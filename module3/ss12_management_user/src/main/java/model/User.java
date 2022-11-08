@@ -1,6 +1,6 @@
 package model;
 
-public class User {
+public class User implements Comparable<User>{
     protected int id;
     protected String name;
     protected String email;
@@ -56,4 +56,8 @@ public class User {
         this.country = country;
     }
 
+    @Override
+    public int compareTo(User o) {
+        return this.getName().compareTo(o.getName());
+    }
 }

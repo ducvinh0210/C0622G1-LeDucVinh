@@ -103,14 +103,15 @@ public class UserRepository implements IUserRepository {
         } catch (SQLException e) {
             printSQLException(e);
         }
-//       Collections.sort(users);
+      Collections.sort(users);
         return users;
     }
 
     @Override
     public boolean deleteUser(int id) throws SQLException {
         boolean rowDeleted;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
             statement.setInt(1, id);
             rowDeleted = statement.executeUpdate() > 0;
         }
@@ -137,7 +138,7 @@ public class UserRepository implements IUserRepository {
         users = selectAllUsers();
         List<User> userListFound = new ArrayList<>();
         for (User user : users) {
-            if (user.getCountry().equals(country))
+            if (user.getCountry().contains(country))
                 userListFound.add(user);
         }
         return userListFound;

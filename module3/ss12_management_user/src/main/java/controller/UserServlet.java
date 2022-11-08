@@ -119,11 +119,21 @@ public class UserServlet extends HttpServlet {
         if (country.equals("")){
             try {
                 listUser(request,response);
+                return;
             } catch (ServletException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        List<User> users= this.userService.selectUserByCountry(country);
+        request.setAttribute("listUser",users);
+        try {
+            request.getRequestDispatcher("user/list.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
