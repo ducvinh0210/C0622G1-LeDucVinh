@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/product/delete}" method="post" th:object="${product}">
+<input hidden th:field="*{id}"/>
+<input readonly th:field="*{nameProduct}">
+<input readonly th:field="*{price}">
+<input readonly th:field="*{productDescription}">
+<input readonly th:field="*{producer}">
+    <input type="submit" value="delete">
+</form>
+
+</body>
+</html>
