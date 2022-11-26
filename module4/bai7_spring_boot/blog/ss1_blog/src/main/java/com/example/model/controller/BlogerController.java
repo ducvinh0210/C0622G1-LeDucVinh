@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,6 +37,27 @@ modelAndView.addObject("blog" ,new Bloger());
    modelAndView.addObject("blogs",blogers);
    return modelAndView;
     }
+    @GetMapping("/edit-blog/{id}")
+    public ModelAndView showUpdateForm(@PathVariable int id){
+        Bloger bloger=blogerService.findById(id);
+        if (bloger!=null){
+            ModelAndView modelAndView= new ModelAndView("/blog/edit");
+            modelAndView.addObject("blog",bloger);
+            return modelAndView;
+        }else {
+            ModelAndView modelAndView= new ModelAndView("error.404");
+        return modelAndView;
+        }
+
+    }
+@PostMapping("/edit-blog")
+    public ModelAndView update(@ModelAttribute("blog") Bloger bloger){
+        blogerService.save(bloger);
+        ModelAndView modelAndView= new ModelAndView("/blog/edit");
+        modelAndView.addObject("blog",bloger);
+        modelAndView.addObject("message","update blog successfully");
+        return modelAndView;
+}
 
 
 
