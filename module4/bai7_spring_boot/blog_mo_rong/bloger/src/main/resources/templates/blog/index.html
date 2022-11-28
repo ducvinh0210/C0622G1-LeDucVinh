@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="/layout :: head">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -9,6 +9,10 @@
 <p>
     <a href="/blogers/create-blog">Create new blog</a>
 </p>
+<form action="/blogers/search" style="margin-bottom: 5px;width: 25%">
+    <input type="text" name="nameSearch" placeholder="...Input search name blog">
+    <input type="submit" value="Search">
+</form>
 <table class="table table-dark"  border="1">
     <thead>
     <tr>
@@ -47,7 +51,7 @@
        th:if="${blogs.hasNext()}">Next</a>
 
 </div>
-
+<footer th:replace="layout :: footer"></footer>
 
 
 </body>

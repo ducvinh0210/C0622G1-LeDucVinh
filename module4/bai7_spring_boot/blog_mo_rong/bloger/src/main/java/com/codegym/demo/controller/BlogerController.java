@@ -71,52 +71,55 @@ public class BlogerController {
         }
 
     }
+
     @PostMapping("/edit-blog")
-    public ModelAndView editBlog(@ModelAttribute("blog") Bloger bloger){
+    public ModelAndView editBlog(@ModelAttribute("blog") Bloger bloger) {
         bloger.setDate(new Date(System.currentTimeMillis()));
         blogerService.save(bloger);
-        List<Category> categories= categoryService.findAll();
-        ModelAndView modelAndView= new ModelAndView("/blog/edit");
-        modelAndView.addObject("blog",bloger);
-        modelAndView.addObject("categories",categories);
-        modelAndView.addObject("message","edit blog successfully");
+        List<Category> categories = categoryService.findAll();
+        ModelAndView modelAndView = new ModelAndView("/blog/edit");
+        modelAndView.addObject("blog", bloger);
+        modelAndView.addObject("categories", categories);
+        modelAndView.addObject("message", "edit blog successfully");
         return modelAndView;
     }
+
     @GetMapping("/delete-blog/{id}")
-    public ModelAndView showDeleteForm(@PathVariable int id){
-        Bloger bloger= blogerService.findById(id);
-        List<Category> categories= categoryService.findAll();
-        if (bloger!=null){
-            ModelAndView modelAndView= new ModelAndView("/blog/delete");
-            modelAndView.addObject("blog",bloger);
-            modelAndView.addObject("categories",categories);
+    public ModelAndView showDeleteForm(@PathVariable int id) {
+        Bloger bloger = blogerService.findById(id);
+        List<Category> categories = categoryService.findAll();
+        if (bloger != null) {
+            ModelAndView modelAndView = new ModelAndView("/blog/delete");
+            modelAndView.addObject("blog", bloger);
+            modelAndView.addObject("categories", categories);
             return modelAndView;
-        }else {
-            ModelAndView modelAndView= new ModelAndView("error.404");
+        } else {
+            ModelAndView modelAndView = new ModelAndView("error.404");
             return modelAndView;
         }
     }
+
     @PostMapping("/delete-blog")
-    public String deleteBlog(@ModelAttribute("blog") Bloger bloger){
+    public String deleteBlog(@ModelAttribute("blog") Bloger bloger) {
         blogerService.remove(bloger);
         return "redirect:/blogers";
 
     }
-    @GetMapping("/view-blog{id}")
-    public ModelAndView view(@PathVariable int id){
-        Bloger bloger= blogerService.findById(id);
-        if (bloger!=null){
-            ModelAndView modelAndView= new ModelAndView("/blog/view");
-            modelAndView.addObject("blog",bloger);
+
+    @GetMapping("/view-blog/{id}")
+    public ModelAndView view(@PathVariable int id) {
+        Bloger bloger = blogerService.findById(id);
+        if (bloger != null) {
+            ModelAndView modelAndView = new ModelAndView("/blog/view");
+            modelAndView.addObject("blog", bloger);
             return modelAndView;
 
-        }else {
-            ModelAndView modelAndView= new ModelAndView("error.404");
+        } else {
+            ModelAndView modelAndView = new ModelAndView("error.404");
             return modelAndView;
 
         }
     }
-
 
 
 }
