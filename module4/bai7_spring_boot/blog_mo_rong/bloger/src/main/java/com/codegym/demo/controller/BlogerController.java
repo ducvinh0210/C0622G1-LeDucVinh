@@ -9,10 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
@@ -54,12 +51,72 @@ public class BlogerController {
         ModelAndView modelAndView = new ModelAndView("/blog/create");
         modelAndView.addObject("categories", categories);
         modelAndView.addObject("blog", bloger);
-        modelAndView.addObject("message","blog create successfully");
+        modelAndView.addObject("message", "blog create successfully");
 
         return modelAndView;
+    }
 
+    @GetMapping("/edit-blog/{id}")
+    public ModelAndView showEditForm(@PathVariable int id) {
+        Bloger bloger = blogerService.findById(id);
+        List<Category> categories = categoryService.findAll();
+        if (bloger != null) {
+            ModelAndView modelAndView = new ModelAndView("/blog/edit");
+            modelAndView.addObject("blog", bloger);
+            modelAndView.addObject("categories", categories);
+            return modelAndView;
+        } else {
+            ModelAndView modelAndView = new ModelAndView("error.404");
+            return modelAndView;
+        }
 
     }
+    @PostMapping("/edit-blog")
+    public ModelAndView editBlog(@ModelAttribute("blog") Bloger bloger){
+        bloger.setDate(new Date(System.currentTimeMillis()));
+        blogerService.save(bloger);
+        List<Category> categories= categoryService.findAll();
+        ModelAndView modelAndView= new ModelAndView("/blog/edit");
+        modelAndView.addObject("blog",bloger);
+        modelAndView.addObject("categories",categories);
+        modelAndView.addObject("message","edit blog successfully");
+        return modelAndView;
+    }
+    @GetMapping("/delete-blog/{id}")
+    public ModelAndView showDeleteForm(@PathVariable int id){
+        Bloger bloger= blogerService.findById(id);
+        List<Category> categories= categoryService.findAll();
+        if (bloger!=null){
+            ModelAndView modelAndView= new ModelAndView("/blog/delete");
+            modelAndView.addObject("blog",bloger);
+            modelAndView.addObject("categories",categories);
+            return modelAndView;
+        }else {
+            ModelAndView modelAndView= new ModelAndView("error.404");
+            return modelAndView;
+        }
+    }
+    @PostMapping("/delete-blog")
+    public String deleteBlog(@ModelAttribute("blog") Bloger bloger){
+        blogerService.remove(bloger);
+        return "redirect:/blogers";
+
+    }
+    @GetMapping("/view-blog{id}")
+    public ModelAndView view(@PathVariable int id){
+        Bloger bloger= blogerService.findById(id);
+        if (bloger!=null){
+            ModelAndView modelAndView= new ModelAndView("/blog/view");
+            modelAndView.addObject("blog",bloger);
+            return modelAndView;
+
+        }else {
+            ModelAndView modelAndView= new ModelAndView("error.404");
+            return modelAndView;
+
+        }
+    }
+
 
 
 }

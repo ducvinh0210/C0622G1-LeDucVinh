@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>view blog</title>
+</head>
+<body>
+<p>
+    <a href="/blogers">Back to blog list</a>
+</p>
+<table>
+    <tr>
+        <td>id</td>
+        <td th:text="${blog.id}"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td th:text="${blog.name}"></td>
+    </tr>
+    <tr>
+        <td>content</td>
+        <td th:text="${blog.content}"></td>
+    </tr>
+    <tr>
+        <td>author</td>
+        <td th:text="${blog.author}"></td>
+    </tr>
+    <tr>
+        <td>category</td>
+        <td th:text="${blog.category.name}"></td>
+    </tr>
+    <tr>
+        <td>time create Blog</td>
+        <td th:text="${blog.date}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -6,11 +6,13 @@ import com.codegym.demo.model.Category;
 import java.util.List;
 
 public interface ICategoryService {
-  List<Category> findAll();
-  Category findById(int id);
-  void save(Category category);
-  void remove(Category category);
+    List<Category> findAll();
 
+    Category findById(int id);
+
+    void save(Category category);
+
+    void remove(Category category);
 
 
 }
