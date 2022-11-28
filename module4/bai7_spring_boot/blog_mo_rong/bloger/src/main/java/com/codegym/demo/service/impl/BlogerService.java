@@ -44,4 +44,11 @@ public class BlogerService implements IBlogerService {
         return blogerRepository.findAll(pageable);
 
     }
+
+    @Override
+    public Page<Bloger> findAllByNameContainingOrderByDateDesc(String bloName, Pageable pageable) {
+        return blogerRepository.findAllByNameContainingOrderByDateDesc(bloName,pageable);
+    }
+
+
 }
