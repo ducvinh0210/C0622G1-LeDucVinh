@@ -23,7 +23,7 @@
             <td th:text="${book.count}"></td>
             <td th:text="${book.author}"></td>
             <td><a class="btn btn-danger" th:href="@{/books/view/__${book.id}__}">View</a></td>
-            <td><a class="btn btn-danger" th:href="@{/books/view/__${book.id}__}">Return Book</a></td>
+            <td><a class="btn btn-danger" th:href="@{/books/return/__${book.id}__}">Return Book</a></td>
         </tr>
     </th:block>
     </tbody>
