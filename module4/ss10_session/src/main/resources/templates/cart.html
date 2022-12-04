@@ -9,16 +9,18 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <style>
-        td a{
+        td a {
             display: inline-block;
             margin: 0px 12px;
             font-size: 18px;
             text-decoration: none;
         }
-        table, td, th{
+
+        table, td, th {
             padding: 12px 8px;
             border: 1px solid black;
         }
+
         table {
             border-collapse: collapse;
         }
@@ -29,24 +31,27 @@
     <a href="/shop">Shop</a>
 </p>
 <h1>Your Cart</h1>
-<form th:if="${cart!=null && cart.getProductMap().size()>0}" th:action="@{/shop}" th:object="${cart}" method="post">
+<form th:if="${cart!=null&&cart.getProductMap().size()>0 }" th:action="@{/shop}" th:object="${cart}" method="post">
     <h3>Total Items: <span th:text="${cart.countItemQuantity()}"></span></h3>
     <h3>Total Products: <span th:text="${cart.countProductQuantity()}"></span></h3>
-    <table th:if="${cart!=null && cart.getProductMap().size()>0}" border="1">
+    <table th:if="${cart!=null&&cart.getProductMap().size()>0}" border="1">
+
         <tr>
             <th>Item</th>
-            <th>Quantity</th>
-            <th>Price</th>
+            <th>quantity</th>
+            <th>price</th>
         </tr>
-        <tr th:each="product: ${cart.productMap}">
+        <tr th:each="product:${cart.productMap}">
             <td th:text="${product.getKey().name}"></td>
             <td>
-                <a class="btn btn-primary" id="decrease_button" th:href="@{/remove/__${product.getKey().id}__}" th:text="${'-'}"></a>
+                <a class="btn btn-primary" id="decrease_button" th:href="@{/remove/__${product.getKey().id}__}"
+                   th:text="${'-'}"></a>
                 <span th:text="${product.getValue()}"></span>
-                <a class="btn btn-primary"  id="increase_button" th:href="@{/add/__${product.getKey().id}__}"
+                <a class="btn btn-primary" id="increase_button" th:href="@{/add/__${product.getKey().id}__}"
                    th:text="${'+'}"></a>
             </td>
             <td th:text="${product.getKey().price}"></td>
+
         </tr>
         <tr>
             <td>Total</td>
@@ -54,8 +59,8 @@
             <td th:text="${cart.countTotalPayment()}"></td>
         </tr>
     </table>
-
 </form>
 <div th:if="${cart==null || cart.getProductMap().size()==0}">Cart Empty</div>
+
 </body>
 </html>
