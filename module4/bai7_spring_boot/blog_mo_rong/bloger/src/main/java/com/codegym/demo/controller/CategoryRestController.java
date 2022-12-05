@@ -25,6 +25,6 @@ public class CategoryRestController {
 
         }
         return new ResponseEntity<>(categoryList,HttpStatus.OK);
-        
+
     }
 }

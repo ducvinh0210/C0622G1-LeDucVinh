@@ -1,5 +1,7 @@
 package com.codegym.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -9,7 +11,9 @@ public class Category {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "category")
+
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonBackReference
     private Set<Bloger> blogers;
 
     public Category() {
