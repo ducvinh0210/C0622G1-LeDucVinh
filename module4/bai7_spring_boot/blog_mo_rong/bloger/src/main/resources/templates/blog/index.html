@@ -3,6 +3,7 @@
 <head th:replace="/layout :: head">
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
 <h1>Blog list</h1>
@@ -46,6 +47,7 @@
     <a th:href="@{'/blogers/search'(page=${blogs.number - 1},nameSearch=${nameSearch})}"
        th:if="${blogs.hasPrevious()}">Previous</a>
     <span th:text="${blogs.number+1}"></span>
+    <span>/</span>
     <span th:text="${blogs.totalPages}"></span>
     <a th:href="@{'/blogers/search'(page=${blogs.number + 1},nameSearch=${nameSearch})}"
        th:if="${blogs.hasNext()}">Next</a>

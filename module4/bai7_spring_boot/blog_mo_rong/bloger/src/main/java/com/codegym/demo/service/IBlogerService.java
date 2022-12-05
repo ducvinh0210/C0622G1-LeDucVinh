@@ -14,7 +14,11 @@ public interface IBlogerService {
     void save(Bloger bloger);
 
     void remove(Bloger bloger);
+
     Page<Bloger> findAll(Pageable pageable);
-Page<Bloger>findAllByNameContainingOrderByDateDesc(String bloName,Pageable pageable);
+
+    Page<Bloger> findAllByNameContainingOrderByDateDesc(String bloName, Pageable pageable);
+
+    List<Bloger> findAllByCategory(String nameCategory);
 
 }

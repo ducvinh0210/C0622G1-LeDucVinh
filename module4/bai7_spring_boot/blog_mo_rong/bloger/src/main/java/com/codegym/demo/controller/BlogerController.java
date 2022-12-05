@@ -130,8 +130,8 @@ public class BlogerController {
         modelAndView.addObject("categories", categories);
         modelAndView.addObject("blogs", blogers);
         return modelAndView;
-
     }
+
 
 
 }

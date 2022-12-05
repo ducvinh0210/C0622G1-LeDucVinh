@@ -16,7 +16,7 @@ public class Bloger {
 
 
     @ManyToOne
-    private Category category;
+       private Category category;
 
     public Category getCategory() {
         return category;

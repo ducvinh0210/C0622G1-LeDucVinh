@@ -50,5 +50,10 @@ public class BlogerService implements IBlogerService {
         return blogerRepository.findAllByNameContainingOrderByDateDesc(bloName,pageable);
     }
 
+    @Override
+    public List<Bloger> findAllByCategory(String nameCategory) {
+        return blogerRepository.findAllByCategory(nameCategory);
+    }
+
 
 }
