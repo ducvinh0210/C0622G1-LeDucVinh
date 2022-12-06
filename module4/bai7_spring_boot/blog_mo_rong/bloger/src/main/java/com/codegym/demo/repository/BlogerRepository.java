@@ -17,12 +17,6 @@ import java.util.List;
 public interface BlogerRepository extends JpaRepository<Bloger,Integer> {
    Page<Bloger>findAllByNameContainingOrderByDateDesc(String blogName, Pageable pageable);
 
-   @Query(value= "select *from bloger join category on bloger.category_id= category.id where category.name=:nameCategory",nativeQuery=true)
+   @Query(value= "select * from bloger join category on bloger.category_id = category.id where category.name=:nameCategory",nativeQuery=true)
    List<Bloger> findAllByCategory(@Param("nameCategory") String nameCategory);
-
-
-
-
-
-
 }
