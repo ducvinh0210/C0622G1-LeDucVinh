@@ -19,4 +19,6 @@ public interface BlogerRepository extends JpaRepository<Bloger,Integer> {
 
    @Query(value= "select * from bloger join category on bloger.category_id = category.id where category.name=:nameCategory",nativeQuery=true)
    List<Bloger> findAllByCategory(@Param("nameCategory") String nameCategory);
+
+
 }
