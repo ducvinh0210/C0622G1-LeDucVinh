@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>Form Edit Facility</h1>
+<p>
+    <a href="/facilities"> Back to facility list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+
+</th:block>
+<form th:action="@{/facilities/edit}" th:object="${facilityDto}" method="post">
+    <input th:field="*{id}" hidden>
+    <table>
+        <tr>
+            <td>Facility Type</td>
+            <td>
+                <select id="facilityType" th:field="*{facilityType}">
+                    <option th:each="item:${facilityTypeList}" th:value="${item.id}" th:text="${item.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <output style="color: red" th:if="${#fields.hasErrors()}" th:errors="*{name}"></output>
+            </td>
+        </tr>
+        <tr>
+            <td>Name facility</td>
+            <td>
+                <input type="text" th:field="*{name}">
+            </td>
+        </tr>
+        <tr>
+            <td>area</td>
+            <td><input type="text" th:field="*{area}"></td>
+        </tr>
+        <tr>
+            <td>Cost</td>
+            <td><input type="text" th:field="*{cost}"></td>
+        </tr>
+        <tr>
+            <td>Max People</td>
+            <td><input type="text" th:field="*{maxPeople}"></td>
+        </tr>
+        <tr>
+            <td>standardRoom</td>
+            <td><input type="text" th:field="*{standardRoom}"></td>
+        </tr>
+        <tr>
+            <td>descriptionOtherConvenience</td>
+            <td><input type="text" th:field="*{descriptionOtherConvenience}"></td>
+        </tr>
+        <tr id="poolArea">
+            <td>poolArea</td>
+            <td><input id="poolAreaValue" type="text" th:field="*{poolArea}"></td>
+        </tr>
+        <tr id="numberFloors">
+            <td>numberOfFloors</td>
+            <td><input id="numberFloorsValue" type="text" th:field="*{numberOfFloors}"></td>
+        </tr>
+        <tr id="facilityFree">
+            <td>facilityFree</td>
+            <td><input id="facilityFreeValue" type="text" th:field="*{facilityFree}"></td>
+        </tr>
+        <tr>
+            <td> rent type</td>
+            <td>
+                <select th:field="*{rentType}">
+                    <option th:each="item:${rentTypeList}" th:value="${item.id}" th:text="${item.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Update Facility">
+            </td>
+        </tr>
+    </table>
+
+
+</form>
+
+<script>
+    if ($('#facilityType').val() === '1') {
+        $('#facilityFree').hide();
+
+    }
+    if ($('#facilityType').val() === '2') {
+        $('#facilityFree').hide();
+        $('#poolArea').hide();
+
+    }
+    if ($('#facilityType').val() === '3') {
+        $('#poolArea').hide();
+        $('#numberFloors').hide();
+
+    }
+    $('#facilityType').change(function () {
+        if ($(this).val() === '1') {
+            $('#facilityFree').hide();
+            $('#facilityFreeValue').val("");
+            $('#poolArea').show();
+            $('#numberFloors').show();
+        }
+        if ($(this).val() === '2') {
+            $('#facilityFree').hide();
+            $('#facilityFreeValue').val("");
+            $('#poolArea').hide();
+            $('#poolAreaValue').val("");
+            $('#numberFloors').show();
+        }
+        if ($(this).val() === '3') {
+            $('#poolArea').hide();
+            $('#poolAreaValue').val("");
+            $('#numberFloors').hide();
+            $('#numberFloorsValue').val("");
+            $('#facilityFree').show();
+        }
+    });
+</script>
+
+
+</body>
+</html>
