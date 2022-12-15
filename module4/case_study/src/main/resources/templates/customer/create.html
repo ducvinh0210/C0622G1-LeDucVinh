@@ -5,16 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-<h1>form create customer</h1>
+<center>
+    <h1 style="color: red">FORM CUSTOMER CREATE</h1>
+</center>
+
 <p>
     <a href="/customers"> Back to customer</a>
 </p>
 <th:block th:if="${message}">
-    <p th:text="${message}"></p>
+    <p style="color: red" th:text="${message}"></p>
 </th:block>
 
 
-<form th:action="@{/customers/create}" th:object="${customerDto2}" method="post">
+<form th:action="@{/customers/create}" th:object="${customerDto}" method="post">
     <table>
         <tr>
             <td>Name Customer</td>
