@@ -32,7 +32,7 @@ public class Employee {
     private Position position;
 
     @ManyToOne
-    @JoinColumn(name="education_degree",referencedColumnName = "id")
+    @JoinColumn(name="education_degree_id",referencedColumnName = "id")
     private EducationDegree educationDegree;
 
     @ManyToOne

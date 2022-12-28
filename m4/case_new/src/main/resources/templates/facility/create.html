@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>Form create Facility</h1>
+<p>
+    <a href="/facilities"> Back to facility list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+
+</th:block>
+<form th:action="@{/facilities/create}" th:object="${facilityDto}" method="post">
+    <table>
+        <tr>
+            <td>facility type</td>
+            <td>
+                <select id="facilityType" th:field="*{facilityType}">
+                    <option th:each="item:${facilityTypeList}" th:value="${item.id}" th:text="${item.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Name Facility</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Area facility</td>
+            <td><input type="text" th:field="*{area}"></td>
+        </tr>
+        <tr>
+            <td>Cost</td>
+            <td><input type="text" th:field="*{cost}"></td>
+        </tr>
+        <tr>
+            <td>Max people</td>
+            <td><input type="text" th:field="*{maxPeople}"></td>
+        </tr>
+        <tr>
+            <td>standardRoom</td>
+            <td><input type="text" th:field="*{standardRoom}"></td>
+        </tr>
+        <tr>
+            <td>descriptionOtherConvenience</td>
+            <td><input type="text" th:field="*{descriptionOtherConvenience}"></td>
+        </tr>
+        <tr id="poolArea">
+            <td>poolArea</td>
+            <td><input type="text" th:field="*{poolArea}"></td>
+        </tr>
+        <tr id="numberOfFloors">
+            <td>numberOfFloors</td>
+            <td><input type="text" th:field="*{numberOfFloors}"></td>
+        </tr>
+        <tr id="facilityFree">
+            <td>facilityFree</td>
+            <td><input type="text" th:field="*{facilityFree}"></td>
+        </tr>
+        <tr>
+            <td>Rent Type</td>
+            <td>
+                <select th:field="*{rentType}">
+                    <option th:each="item:${rentTypeList}" th:value="${item.id}" th:text="${item.name}"></option>
+                </select>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Save"></td>
+        </tr>
+    </table>
+</form>
+<script>
+    $(document).ready(function () {
+        idFacilityType();
+
+    })
+
+    function idFacilityType() {
+        let idFacilityType = $('#facilityType').val();
+        if (idFacilityType === '1') {
+            $('#facilityFree').hide();
+            $('#poolArea').show();
+            $('#numberOfFloors').show();
+        }
+        if (idFacilityType=='2'){
+            $('#facilityFree').hide();
+            $('#poolArea').hide();
+            $('#numberOfFloors').show();
+        }
+        if (idFacilityType=='3'){
+            $('#facilityFree').show();
+            $('#poolArea').hide();
+            $('#numberOfFloors').hide();
+        }
+    }
+    $('#facilityFree').hide();
+    $('#poolArea').show();
+    $('#numberFloors').show();
+
+    $('#facilityType').change(function () {
+        if ($(this).val() === '1') {
+            $('#facilityFree').hide();
+            $('#poolArea').show();
+            $('#numberFloors').show();
+        }
+        if ($(this).val() === '2') {
+            $('#facilityFree').hide();
+            $('#poolArea').hide();
+            $('#numberFloors').show();
+        }
+        if ($(this).val() === '3') {
+            $('#poolArea').hide();
+            $('#numberFloors').hide();
+            $('#facilityFree').show();
+        }
+    });
+
+</script>
+
+
+</body>
+</html>
