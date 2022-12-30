@@ -4,6 +4,8 @@ import com.codegym.model.Bloger;
 import com.codegym.repository.BlogerRepository;
 import com.codegym.service.IBlogerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,4 +39,11 @@ public class BlogerService implements IBlogerService {
         blogerRepository.save(bloger);
 
     }
+
+    @Override
+    public Page<Bloger> findAll(Pageable pageable) {
+        return blogerRepository.findAll(pageable);
+    }
+
+
 }
