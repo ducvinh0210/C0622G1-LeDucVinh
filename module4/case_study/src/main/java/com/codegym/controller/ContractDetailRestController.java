@@ -1,4 +1,26 @@
 package com.codegym.controller;
 
+
+import com.codegym.dto.IContractDetailDto;
+import com.codegym.dto.IContractDto;
+import com.codegym.service.IContractDetailService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/contracts/v1")
+@CrossOrigin("*")
 public class ContractDetailRestController {
+
+    @Autowired
+    private IContractDetailService iContractDetailService;
+
+    @GetMapping("{id}")
+    public List<IContractDetailDto> showAll(@PathVariable int id ){
+        return iContractDetailService.showAll(id);
+    }
 }

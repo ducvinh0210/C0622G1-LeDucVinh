@@ -16,5 +16,7 @@ public interface ICustomerService {
    Page<Customer> findAll(Pageable pageable);
    Page<Customer>findByNameAndEmailAndCustomerType(String name,String email,String type,Pageable pageable);
 
+   Page<Customer>findCustomerUsingService(String name, String email, String typeName,Pageable pageable);
+
 
 }

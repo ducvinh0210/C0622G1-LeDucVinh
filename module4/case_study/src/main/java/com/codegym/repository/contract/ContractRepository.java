@@ -36,5 +36,4 @@ public interface ContractRepository extends JpaRepository<Contract, Integer> {
             nativeQuery = true, countQuery = "select count(*) from contract")
     Page<IContractDto> showListContract(Pageable pageable);
 
-
 }

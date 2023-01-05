@@ -29,8 +29,18 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = "select c.* from `customer` c where c.`status`=1", nativeQuery = true)
     List<Customer> findAll();
 
-@Transactional
+    @Transactional
     @Modifying
-    @Query(value="update customer set `status`=0 where id=:id",nativeQuery= true)
+    @Query(value = "update customer set `status`=0 where id=:id", nativeQuery = true)
     void remove(@Param("id") int id);
+
+@Query(value = "select `customer`.* from `customer` join contract on `customer`.id= `contract`.customer_id" +
+        " join `customer_type` on `customer`.customer_type_id= `customer_type`.id where `customer`.name like %:name% and `customer`.email like %:email%" +
+        " and `customer_type`.name like %:typeName% and `customer`.status=1 group by `customer`.id",nativeQuery = true)
+Page<Customer>findCustomerUsingService(@Param("name") String name,
+                                       @Param("email") String email,
+                                       @Param("typeName") String typeName,
+                                       Pageable pageable);
+
+
 }

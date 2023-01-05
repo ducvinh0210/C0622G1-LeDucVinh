@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CustomerService  implements ICustomerService {
-@Autowired
-  private   CustomerRepository customerRepository;
+public class CustomerService implements ICustomerService {
+    @Autowired
+    private CustomerRepository customerRepository;
 
 
     @Override
@@ -46,6 +46,11 @@ public class CustomerService  implements ICustomerService {
 
     @Override
     public Page<Customer> findByNameAndEmailAndCustomerType(String name, String email, String type, Pageable pageable) {
-        return customerRepository.findByNameAndEmailAndCustomerType(name,email,type,pageable);
+        return customerRepository.findByNameAndEmailAndCustomerType(name, email, type, pageable);
+    }
+
+    @Override
+    public Page<Customer> findCustomerUsingService(String name, String email, String typeName, Pageable pageable) {
+        return customerRepository.findCustomerUsingService(name, email, typeName, pageable);
     }
 }

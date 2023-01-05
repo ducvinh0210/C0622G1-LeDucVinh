@@ -102,7 +102,6 @@ public class FacilityController {
         if(bindingResult.hasFieldErrors()){
             ModelAndView modelAndView= new ModelAndView("facility/edit");
             return modelAndView;
-
         }else {
 
             ModelAndView modelAndView= new ModelAndView("facility/edit");

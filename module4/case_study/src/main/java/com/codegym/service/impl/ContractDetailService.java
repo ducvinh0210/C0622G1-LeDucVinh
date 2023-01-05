@@ -29,4 +29,10 @@ public class ContractDetailService implements IContractDetailService {
     public List<IContractDetailDto> showAll(Integer id) {
         return contractDetailRepository.showAll(id);
     }
+
+    @Override
+    public List<IContractDetailDto> findByCustomer(int id) {
+        return contractDetailRepository.findByCustomer(id);
+
+    }
 }
