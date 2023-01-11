@@ -18,9 +18,20 @@ public class ContractDetailRestController {
 
     @Autowired
     private IContractDetailService iContractDetailService;
+//
+//    @GetMapping("{id}")
+//    public List<IContractDetailDto> showAll(@PathVariable int id ){
+//        return iContractDetailService.showAll(id);
+//    }
+    @GetMapping("/{id}")
+    public ResponseEntity<List<IContractDetailDto>> showAll(@PathVariable int id){
+       List<IContractDetailDto> list= iContractDetailService.showAll(id);
+       if (list.isEmpty()){
+           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
-    @GetMapping("{id}")
-    public List<IContractDetailDto> showAll(@PathVariable int id ){
-        return iContractDetailService.showAll(id);
+       }
+       return new ResponseEntity<>(list,HttpStatus.OK);
     }
+
+
 }

@@ -42,5 +42,10 @@ Page<Customer>findCustomerUsingService(@Param("name") String name,
                                        @Param("typeName") String typeName,
                                        Pageable pageable);
 
+//@Query(value = "select customer.* from customer where customer.email like :email or customer.id_card like :idCard or customer.phone_number like :phoneNumber",nativeQuery = true)
+//    Customer findByEmailAndIdCard(@Param("email") String email,
+//                                  @Param("idCard") String idCard,
+//                                  @Param("phoneNumber") String phoneNumber);
+
 
 }

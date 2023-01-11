@@ -65,6 +65,7 @@ public class ContractController {
     @PostMapping("/add")
     public String saveContract(Model model, @ModelAttribute @Validated ContractDto contractDto, BindingResult bindingResult,
                                @PageableDefault(value = 3) Pageable pageable, RedirectAttributes redirectAttributes) {
+        new ContractDto().validate(contractDto,bindingResult);
         if (bindingResult.hasFieldErrors()) {
             model.addAttribute("contractList", contractService.showListContract(pageable));
             model.addAttribute("attachFacilityList", contractService.findAllAttachFacility());

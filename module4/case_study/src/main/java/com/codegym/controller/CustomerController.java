@@ -28,14 +28,17 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
+
     @Autowired
     private ICustomerService customerService;
+
     @Autowired
     private ICustomerTypeService customerTypeService;
 
-
     @Autowired
     private IContractDetailService contractDetailService;
+
+
 
 
     @ModelAttribute("customerTypeList")

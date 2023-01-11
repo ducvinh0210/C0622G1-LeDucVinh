@@ -18,7 +18,7 @@ public class ContractService implements IContractService {
     @Autowired
     private ContractRepository contractRepository;
     @Autowired
-    AttachFacilityRepository attachFacilityRepository;
+  private  AttachFacilityRepository attachFacilityRepository;
 
 
     @Override
@@ -40,6 +40,5 @@ public class ContractService implements IContractService {
     @Override
     public List<AttachFacility> findAllAttachFacility() {
         return attachFacilityRepository.findAll();
-
     }
 }
